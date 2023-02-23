@@ -1,0 +1,53 @@
+\section{Vector Space}
+% vector space introduction
+A vector space is an algebraic structure that consists of a set of vectors and two operations defined on these vectors: vector addition and scalar multiplication. The elements of the vector space are called vectors, which can be added together and multiplied by numbers, called scalars. The operations of vector addition and scalar multiplication must satisfy a set of axioms, which ensure that the resulting vectors remain within the vector space. It will be helpful to describe a vector space by first explaining the concept of a set and a group. 
+
+% set definition
+A set is a collection of mathematical objects such as numbers, lines or potentially other sets. They were first formalised by George Cantor in 
+1895 \cite{cantor1895beitrage} as being either infinite or finite and containing distinct elements. 
+% group definition
+\begin{definition}
+	\normalfont
+	Let $ \mathcal{V} $ be a set and $ \operation $ denote a binary operation between elements of this set such that $ \operation : \set{G} \times \set{G} \rightarrow \set{G} $. $G := (\set{G}, \operation)$ is called a group  \cite{mml_group_36} if the following conditions are met and specific elements are present:
+	\begin{enumerate}
+		\item (Closure) The binary operation between any two elements of the set will result in an element which is also part of the set: $ \operation : \forall x,y \in \set{G} : x \operation y \in \set{G} $.
+		\item (Associativity) The way in which elements of the set are combined within a larger expression does not affect the result: $ \forall x, y, z \in \set{G} : (x \operation y) \operation = x \operation (y \operation z) $.
+		\item (Neutral Element) A neutral element in a set is an element that, when combined with any other element in the set using the group operation, results in the same element: $ \exists e  \in \set{G} \forall x \in \set{G} : x \operation e = x$ and $ e \operation x = x $.
+		\item (Inverse Element) The inverse of an element in a set is an element that when combined with the original element using the group operation, results in the neutral element. It allows for the reversal of the group operation: $ \forall x \in \set{G} \exists y \in \set{G} :  x \operation y = e$ and $ y \operation x = e $, where $ e $ is the neutral element. We can denote the inverse of an element $ x $ as $ x^{-1} $.
+	\end{enumerate}
+\end{definition}
+
+% relevence of groups 
+Groups are very important in many areas of mathematics. Their rigorous and formal definition means that, if something is found to be a group, its properties can be better understood in the specific context in which it is relevant.
+% example of group 
+% ammend: general linear group being in italic / reference from the book / regular (invertible) not regular invertible
+An example of a group is the general linear group. This is the set of regular invertible matrices $ \matrx{A} \in \real^{n \times n} $ with respect to matrix multiplication.
+% definition of an abelian group
+Given a group $ G $, if the order in which the group operation is performed does not matter i.e. $ \forall x, y \in \set{G} : x \operation y = y \operation x $, then $ G = (\set{G}, \operation) $ is known as an \italic{Abelian group} (commutative). An example of this would be $ (\integers, +) $, the set of all integers under the addition operation.
+
+% definition of a vector space
+A vector space \cite{mml_vector_space_37} is a special type of group with some additional conditions. 
+
+\begin{definition}[Vector Space]
+	\normalfont A real-valued $\italic{vector space}$ $V = (V, +, \cdot)$ is a set $\set{V}$ with two operations:
+	\begin{align}
+		+: \set{V} &\times \set{V} \rightarrow \set{V} \hspace{10pt} (\text{Inner Operation}) \\
+		\cdot: \real &\times \set{V} \rightarrow \set{V} \hspace{10pt} (\text{Outer Operation})
+	\end{align}
+	where:
+	\begin{enumerate}
+		\item $(\set{V}, +)$ is an Abelian group
+		\item (Distributivity) The outer operation can be ``Distributed'' across elements either before or after the inner operation has occurred: 
+		\begin{enumerate}
+			\item $\forall \lambda \in \real, \vectr{x}, \vectr{y} \in \mathcal{V}: \lambda \cdot \vectr{x} + \lambda \cdot \vectr{y}$
+			\item $\forall \lambda, \psi \in \real, \vectr{x} \in \set{V}: (\lambda + \psi) \cdot \vectr{x} = \lambda \cdot \vectr{x} + \psi \cdot \vectr{x}$
+		\end{enumerate} 
+		\item Associativity (outer operation): $\forall \lambda, \psi \in \real, \vectr{x} \in \set{V}: \lambda \cdot (\psi \cdot \vectr{x}) = (\lambda \psi) \cdot \vectr{x}$
+		\item Neutral element with respect to the outer operation: $\forall \vectr{x} \in \set{V}: 1 \cdot \vectr{x} = \vectr{x}$
+	\end{enumerate}
+\end{definition}
+
+% generalisation of a vector
+We commonly think of vectors as being mathematical objects with both direction and magnitude. However, these are only geometric vectors. More generally, any set of objects which follows the definition of a vector space is known as a vector. For example, polynomials are also vectors. Two can be added together, resulting in another polynomial and they can be multiplied by a scalar $ \lambda \in \real $ which again results in another polynomial. 
+
+% ammend: add some more details here about how the specific examples fit into the axioms of a vector space. You should also include an example of a finite dimensional and infinite dimensional situation.

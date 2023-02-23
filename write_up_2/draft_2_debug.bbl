@@ -1,0 +1,186 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nty/global//global/global}
+  \entry{cantor1895beitrage}{article}{}
+    \name{author}{1}{}{%
+      {{hash=CG}{%
+         family={Cantor},
+         familyi={C\bibinitperiod},
+         given={Georg},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{CG1}
+    \strng{fullhash}{CG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{number}{4}
+    \field{pages}{481\bibrangedash 512}
+    \field{title}{Beitr{\"a}ge zur Begr{\"u}ndung der transfiniten Mengenlehre}
+    \field{volume}{46}
+    \field{journaltitle}{Mathematische Annalen}
+    \field{year}{1895}
+  \endentry
+
+  \entry{mml_group_36}{book}{}
+    \name{author}{3}{}{%
+      {{hash=DMP}{%
+         family={Deisenroth},
+         familyi={D\bibinitperiod},
+         given={Marc\bibnamedelima Peter},
+         giveni={M\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+      {{hash=FAA}{%
+         family={Faisal},
+         familyi={F\bibinitperiod},
+         given={A\bibnamedelima Aldo},
+         giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=OCS}{%
+         family={Ong},
+         familyi={O\bibinitperiod},
+         given={Cheng\bibnamedelima Soon},
+         giveni={C\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Cambridge University Press}%
+    }
+    \strng{namehash}{DMPFAAOCS1}
+    \strng{fullhash}{DMPFAAOCS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{pages}{36}
+    \field{title}{Mathematics for machine learning}
+    \field{year}{2020}
+  \endentry
+
+  \entry{mml_vector_space_37}{book}{}
+    \name{author}{3}{}{%
+      {{hash=DMP}{%
+         family={Deisenroth},
+         familyi={D\bibinitperiod},
+         given={Marc\bibnamedelima Peter},
+         giveni={M\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+      {{hash=FAA}{%
+         family={Faisal},
+         familyi={F\bibinitperiod},
+         given={A\bibnamedelima Aldo},
+         giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=OCS}{%
+         family={Ong},
+         familyi={O\bibinitperiod},
+         given={Cheng\bibnamedelima Soon},
+         giveni={C\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Cambridge University Press}%
+    }
+    \strng{namehash}{DMPFAAOCS1}
+    \strng{fullhash}{DMPFAAOCS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{pages}{37}
+    \field{title}{Mathematics for machine learning}
+    \field{year}{2020}
+  \endentry
+
+  \entry{mml_linear_combinations_40}{book}{}
+    \name{author}{3}{}{%
+      {{hash=DMP}{%
+         family={Deisenroth},
+         familyi={D\bibinitperiod},
+         given={Marc\bibnamedelima Peter},
+         giveni={M\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+      {{hash=FAA}{%
+         family={Faisal},
+         familyi={F\bibinitperiod},
+         given={A\bibnamedelima Aldo},
+         giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=OCS}{%
+         family={Ong},
+         familyi={O\bibinitperiod},
+         given={Cheng\bibnamedelima Soon},
+         giveni={C\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Cambridge University Press}%
+    }
+    \strng{namehash}{DMPFAAOCS1}
+    \strng{fullhash}{DMPFAAOCS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{pages}{40}
+    \field{title}{Mathematics for machine learning}
+    \field{year}{2020}
+  \endentry
+
+  \entry{mml_generating_set_span_44}{book}{}
+    \name{author}{3}{}{%
+      {{hash=DMP}{%
+         family={Deisenroth},
+         familyi={D\bibinitperiod},
+         given={Marc\bibnamedelima Peter},
+         giveni={M\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+      {{hash=FAA}{%
+         family={Faisal},
+         familyi={F\bibinitperiod},
+         given={A\bibnamedelima Aldo},
+         giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=OCS}{%
+         family={Ong},
+         familyi={O\bibinitperiod},
+         given={Cheng\bibnamedelima Soon},
+         giveni={C\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Cambridge University Press}%
+    }
+    \strng{namehash}{DMPFAAOCS1}
+    \strng{fullhash}{DMPFAAOCS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{pages}{40}
+    \field{title}{Mathematics for machine learning}
+    \field{year}{2020}
+  \endentry
+\enddatalist
+\endinput

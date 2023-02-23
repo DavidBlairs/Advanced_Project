@@ -1,0 +1,190 @@
+\documentclass[a4paper,12pt]{book}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{helvet}
+\usepackage{graphicx}
+\usepackage[style = numeric, backend = bibtex]{biblatex}
+\graphicspath{ {./images/} }
+
+\newcommand{\set}[1]{\mathcal{#1}}
+\newcommand{\operation}{\bigotimes}
+\newcommand{\matrx}[1]{\bm{#1}}
+\newcommand{\vectr}[1]{\textbf{#1}}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\integers}{\mathbb{Z}}
+\newcommand{\italic}[1]{\textit{#1}}
+\newcommand{\rrank}[1]{rk_{row}(\matrx{#1})}
+\newcommand{\crank}[1]{rk_{col}(\matrx{#1})}
+
+% new environments 
+% recto  inverso 
+% set book class to one sided
+% add chapter levels
+% new environment / draft notes / if then else draft = 1 / check the internet for prior examples
+
+\doublespacing
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+
+\addbibresource{sources/sources.bib}
+
+\begin{document}
+	\section{Vector Space}
+	% vector space introduction
+	A vector space is an algebraic structure that consists of a set of vectors and two operations defined on these vectors: vector addition and scalar multiplication. The elements of the vector space are called vectors, which can be added together and multiplied by numbers, called scalars. The operations of vector addition and scalar multiplication must satisfy a set of axioms, which ensure that the resulting vectors remain within the vector space. It will be helpful to describe a vector space by first explaining the concept of a set and a group. 
+	
+	% set definition
+	A set is a collection of mathematical objects such as numbers, lines or potentially other sets. They were first formalised by George Cantor in 
+	1895 \cite{cantor1895beitrage} as being either infinite or finite and containing distinct elements. 
+	% group definition
+	\begin{definition}
+		\normalfont
+		Let $ \mathcal{V} $ be a set and $ \operation $ denote a binary operation between elements of this set such that $ \operation : \set{G} \times \set{G} \rightarrow \set{G} $. $G := (\set{G}, \operation)$ is called a group  \cite{mml_group_36} if the following conditions are met and specific elements are present:
+		\begin{enumerate}
+			\item (Closure) The binary operation between any two elements of the set will result in an element which is also part of the set: $ \operation : \forall x,y \in \set{G} : x \operation y \in \set{G} $.
+			\item (Associativity) The way in which elements of the set are combined within a larger expression does not affect the result: $ \forall x, y, z \in \set{G} : (x \operation y) \operation = x \operation (y \operation z) $.
+			\item (Neutral Element) A neutral element in a set is an element that, when combined with any other element in the set using the group operation, results in the same element: $ \exists e  \in \set{G} \forall x \in \set{G} : x \operation e = x$ and $ e \operation x = x $.
+			\item (Inverse Element) The inverse of an element in a set is an element that when combined with the original element using the group operation, results in the neutral element. It allows for the reversal of the group operation: $ \forall x \in \set{G} \exists y \in \set{G} :  x \operation y = e$ and $ y \operation x = e $, where $ e $ is the neutral element. We can denote the inverse of an element $ x $ as $ x^{-1} $.
+		\end{enumerate}
+	\end{definition}
+	
+	% relevence of groups 
+	Groups are very important in many areas of mathematics. Their rigorous and formal definition means that, if something is found to be a group, its properties can be better understood in the specific context in which it is relevant.
+	% example of group 
+	% ammend: general linear group being in italic / reference from the book / regular (invertible) not regular invertible
+	An example of a group is the general linear group. This is the set of regular invertible matrices $ \matrx{A} \in \real^{n \times n} $ with respect to matrix multiplication.
+	% definition of an abelian group
+	Given a group $ G $, if the order in which the group operation is performed does not matter i.e. $ \forall x, y \in \set{G} : x \operation y = y \operation x $, then $ G = (\set{G}, \operation) $ is known as an \italic{Abelian group} (commutative). An example of this would be $ (\integers, +) $, the set of all integers under the addition operation.
+	
+	
+	% definition of a vector space
+	A vector space \cite{mml_vector_space_37} is a special type of group with some additional conditions. 
+	
+	\begin{definition}[Vector Space]
+		\normalfont A real-valued $\italic{vector space}$ $V = (\set{V}, +, \cdot)$ is a set $\set{V}$ with two operations:
+		\begin{align}
+			+: \set{V} &\times \set{V} \rightarrow \set{V} \hspace{10pt} (\text{Inner Operation}) \\
+			\cdot: \real &\times \set{V} \rightarrow \set{V} \hspace{10pt} (\text{Outer Operation})
+		\end{align}
+		where:
+		\begin{enumerate}
+			\item $(\set{V}, +)$ is an Abelian group
+			\item (Distributivity) The outer operation can be ``Distributed'' across elements either before or after the inner operation has occurred: 
+			\begin{enumerate}
+				\item $\forall \lambda \in \real, \vectr{x}, \vectr{y} \in \mathcal{V}: \lambda \cdot \vectr{x} + \lambda \cdot \vectr{y}$
+				\item $\forall \lambda, \psi \in \real, \vectr{x} \in \set{V}: (\lambda + \psi) \cdot \vectr{x} = \lambda \cdot \vectr{x} + \psi \cdot \vectr{x}$
+			\end{enumerate} 
+			\item Associativity (outer operation): $\forall \lambda, \psi \in \real, \vectr{x} \in \set{V}: \lambda \cdot (\psi \cdot \vectr{x}) = (\lambda \psi) \cdot \vectr{x}$
+			\item Neutral element with respect to the outer operation: $\forall \vectr{x} \in \set{V}: 1 \cdot \vectr{x} = \vectr{x}$
+		\end{enumerate}
+	\end{definition}
+	
+	% generalisation of a vector
+	We commonly think of vectors as being mathematical objects with both direction and magnitude. However, these are only geometric vectors. More generally, any set of objects which follows the definition of a vector space is known as a vector. For example, polynomials are also vectors. Two can be added together, resulting in another polynomial and they can be multiplied by a scalar $ \lambda \in \real $ which again results in another polynomial. 
+	
+	% ammend: add some more details here about how the specific examples fit into the axioms of a vector space. You should also include an example of a finite dimensional and infinite dimensional situation.
+	
+	
+	% begin linear independence
+	\section{Linear Independence}
+	Linear independence \cite{mml_linear_combinations_40} is a property of a set of vectors which describes whether there is any redundancy with respect to the linear combinations of these vectors. 
+	% definition of linear combination
+	\begin{definition}[Linear Combination]
+		\normalfont	Consider a vector space $\italic{V}$ and a finite number of vectors $\vectr{x}_i,\ldots,\vectr{x}_k \in \italic{V}$. Then, every $\vectr{v} \in \italic{V}$ of the form
+		\begin{align}
+			\vectr{v} = \lambda_1\vectr{x}_1 + \cdots + \lambda_k\vectr{x}_k =  \sum_{i=1}^{k} \lambda_i\vectr{x}_i \in \italic{V}
+		\end{align}
+		with $\lambda_1,\ldots,\lambda_k \in \real$ is a $\italic{linear combination}$ of the vectors $\vectr{x}_1,\cdots,\vectr{x}_k$.
+	\end{definition}
+	% base vectors of R^2
+	Consider two vectors in $ \real^2 $, $\vectr{e}_1 = (1, 0)^{\top}$ and $\vectr{e}_2 = (0, 1)^{\top}$. It is common to see these written as $ \vectr{i} $ and $ \vectr{j} $ respectively. We can represent any vector in $ \real^2 $ as a linear combination of these two vectors. 
+	% definition of linear independence
+	\begin{definition}[Linear (In)dependence] 
+		\normalfont Let us consider a vector space $\italic{V}$ with $k \in \real$ and  $\vectr{x}_1,\cdots,\vectr{x}_k \in \italic{V}$. If there is a non-trivial combination, such that $\vectr{0} = \sum_{i=1}^{k} \lambda_i\vectr{x}_i$ with at least one $\lambda_i \ne 0$, the vectors  $\vectr{x}_1,\cdots,\vectr{x}_k$ are \italic{linearly dependent}. If only the trivial solution exists, i.e., $ \lambda_1 = \cdots = \lambda_k = 0 $ the vectors $\vectr{x}_1,\cdots,\vectr{x}_k $ are \italic{linearly independent}.
+		\label{def:linear_independence}
+	\end{definition}
+	% example of linear independence through linear combinations
+	Lets consider the following set $\set{V}$ of vectors $\vectr{v}_1,\vectr{v}_2 $ and $ \vectr{v}_3$ where (respectively):
+	\begin{align}
+		\set{V} = \left\{\begin{pmatrix} 1 \\ 2 \end{pmatrix},\begin{pmatrix} -2 \\ -4 \end{pmatrix},\begin{pmatrix} -4 \\ -1 \end{pmatrix} \right\}
+	\end{align}
+	And let $\vectr{y} \in \real^2$ be any linear combination that can be made from these vectors. Writing this out explicitly with $\alpha, \beta, \omega \in \real$:
+	\begin{align}
+		\vectr{y} &= \alpha \begin{pmatrix} 1 \\ 2 \end{pmatrix} + \beta \begin{pmatrix} -2 \\ -4 \end{pmatrix} + \omega \begin{pmatrix} -4 \\ -1 \end{pmatrix} \\
+		&= \alpha \begin{pmatrix} 1 \\ 2 \end{pmatrix} - 2\beta \begin{pmatrix} 1 \\ 2 \end{pmatrix} + \omega \begin{pmatrix} -4 \\ -1 \end{pmatrix} \\
+		&= (\alpha - 2\beta) \begin{pmatrix} 1 \\ 2 \end{pmatrix} + \omega \begin{pmatrix} -4 \\ -1 \end{pmatrix} \\
+	\end{align} 
+	% intuition behind linear independence 
+	What we have shown is that if a vector $ \vectr{y} $ can be represented as a linear combination of $ \vectr{v}_1,\vectr{v}_2 $ and $ \vectr{v}_3 $ then we can represent $ \vectr{y} $ as a linear combination of $ \vectr{v}_2 $ and $ \vectr{v}_3 $. This is because $ \vectr{v}_1 $ is a scaled version of $ \vectr{v}_2 $ and vice versa. 
+	% leading into the formal definition 
+	More formally:
+	
+	\begin{align}
+		\begin{pmatrix} -2 \\ -4 \end{pmatrix} + 2 \begin{pmatrix} 1 \\ 2 \end{pmatrix} = \vectr{0}
+	\end{align}
+	
+	which following from definition \ref{def:linear_independence} demonstrates that we have a linearly dependent set of vectors.
+	\section{Generating Set and Span}
+	
+	A generating set and the span \cite{mml_generating_set_span_44} of a set of vectors are concerned with the vector space produced by the linear combination of all the vectors in the set.
+	
+	% definition of a generating set and span
+	\begin{definition}[Generating Set and Span]
+		\normalfont Consider a vector space $\italic{V} = (\set{V}, +, \cdot)$ and set of vectors $\set{A} = \{\vectr{x}_1,\ldots,\vectr{x}_k\} \subseteq \italic{V}$. If every vector $\vectr{v} \in \italic{V}$ can be expressed as a linear combination of vectors of $\vectr{x}_1,\ldots,\vectr{x}_k$, $\set{A}$ is called the generating set of $\italic{V}$. The set of all linear combinations of vectors in $\set{A}$ is called the span of $\set{A}$. If $\set{A}$ spans the vector space $\italic{V}$, we write $\italic{V} = span[\set{A}]$. 
+		\label{def:generating_set_span}
+	\end{definition}
+	
+	% generating set of R^2
+	Consider the vector space $ V = (\real^{2}, +, \cdot) $ under matrix addition and scalar multiplication. Previously we have said that every vector $ v \in V $ can be represented as a linear combination of $\vectr{e}_1 = (1, 0)^{\top}$ and $\vectr{e}_2 = (0, 1)^{\top}$. By definition \ref{def:generating_set_span}, the set of vectors $ \set{B} = \{ \vectr{e}_1, \vectr{e}_2 \} $ is a generating set of $ \vectr{V} $. 
+	% span of base vectors of R^2
+	On the other hand, the set of two-dimensional vectors $ \real^{2} $ contains all linear combinations of the set $ B $ meaning that the $ span[\set{B}] = \real^{2} $. In this sense, a generating set and the span of a set are two sides of the same coin.
+	\section{Basis}
+	
+	% reasoning behind a basis
+	A basis is concerned with the minimum number of vectors that would be needed to span a particular vector space. 
+	% basis definition
+	\begin{definition}[Basis]
+		\normalfont Consider a vector space $\italic{V} = (\set{V}, +, \cdot)$ and $\set{A} \subseteq \set{V}$. A generating set $\set{A}$ of $\italic{V}$ is called $\italic{minimal}$ if there exists no smaller set $\set{\tilde{A}} \subseteq \set{A} \subseteq \set{V}$ that spans $\italic{V}$. Every linearly independent generating set of $\italic{V}$  is minimal and is called a $\italic{basis}$ or $\italic{V}$.
+		\label{def:basis}
+	\end{definition}
+	% basis example
+	Consider the vector space $ \italic{V} = (\real^{3}, +, \cdot) $. A potential generating set for $ \italic{V} $ is the set $ \set{A} $ where:
+	% basis vectors for R^3
+	\begin{align}
+		\set{A} = \left\{\begin{pmatrix} 1 \\ 0 \\ 0  \end{pmatrix},\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix},\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} \right\}
+	\end{align}
+	% informal explanation for a basis
+	This is because every vector in $ \real^{3} $ can be represented as linear combinations of the vectors in $ \set{A} $. Since this set of vectors is linearly independent, it forms a \italic{minimal} generating set. We've described previously that the $ span $ of a set of vectors can be thought of as the collection of all potential linear combinations of the set. $ \set{A} $ forms a \italic{minimal} generating set because no vectors may be removed without eliminating some linear combinations / reducing the overall span of the set. This is what we mean by a basis for the vector space $ V $. 
+	% dimensionality = number of basis
+	As well as this, the number of dimensions of the vector space spanned by the basis is equal to the number of vectors in the basis for the vector space.
+	\section{Row Rank and Column Rank}
+	
+	% proof that the column rank = dim(span(columns vectors of A))
+	Given a matrix $ \matrx{A} \in \real^{n \times m} $, the row rank (denoted as $ \rrank{A} $) and the column rank (denoted as $ \crank{A} $) describe the number of linearly independent row vectors and column vectors respectively.
+	
+	% row rank = column rank proposition
+	\begin{proposition}
+		\normalfont Given a matrix $ \matrx{A} \in \real^{n \times m}$, the following statement is always true:
+		\begin{align}
+			\rrank{A} = \crank{A}
+			\label{eq:row_rank_col_rank}
+		\end{align}
+		where $ \rrank{A} $ and $ \crank{A} $ denote the row rank and the column rank respectively.
+		\label{prop:row_rank_col_rank}
+	\end{proposition}
+	
+	% proof that the row rank is equal to the column rank
+	\noindent\italic{Proof:}
+	Let $ \matrx{A} \in \real^{m \times n}$ be a matrix and let $ u = \crank{A} $. There exists a basis $ C = \{\vectr{c}_1, \ldots, \vectr{c}_u\} $ of $ m \times 1 $ column vectors that spans the same space spanned by the columns of $ \vectr{A} $. 
+	Let $ \matrx{B} = [\vectr{c}_1 | \vectr{c}_2 | \ldots | \vectr{c}_{u - 1} \vectr{c}_u] $ be a matrix where $ [\vectr{v}_1 | \vectr{v}_2] $ denotes the concatenation between two vectors $ \vectr{v}_1 $ and $ \vectr{v}_2 $. By definition \ref{def:linear_independence}, each column of $ \matrx{A} $ can be expressed as a linear combination of vectors in $ \matrx{B} $. If we collect the coefficients of these linear combinations into a matrix $ \matrx{D} $, we can represent $ \matrx{A} $ as $ \matrx{A} = \matrx{BD} $ where $ \matrx{D} \in \real^{m \times n}$. Equally, we can see that the rows of $ \matrx{BD} $ can be expressed as a linear combination of $ \matrx{D} $ with coefficients taken from $ B $. $ \therefore $, the span of the rows of $ \matrx{A} $ is no greater than the span of the rows of $ \matrx{D} $ because linear combinations of the rows of $ \matrx{A} $ can be written as linear combinations of the rows in $ \matrx{D} $. $ \matrx{D} $ has $ u $ rows. If they are linearly independent, the dimension of their span is $ u $. Otherwise, it has dimension $ < u $. $ \therefore $ the row rank is $ \leq u $ and so $ \rrank{A} \leq \crank{A} $
+	
+	\begin{definition}[Rank]
+		\normalfont The number of linearly independent columns of a matrix $\textbf{A} \in \mathbb{R}^{m \times n}$ equals the number of linearly independent rows and is called the $\textit{rank}$ of $\textbf{A}$ and is denoted by $rk(\textbf{A})$.
+	\end{definition}
+	
+	\printbibliography
+\end{document}

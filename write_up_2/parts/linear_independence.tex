@@ -1,0 +1,29 @@
+
+% begin linear independence
+\section{Linear Independence}
+Linear independence is a property of a set of vectors which describes whether there is any redundancy with respect to the linear combinations of these vectors. 
+% definition of linear combination
+\begin{definition}[Linear Combination]
+	\normalfont	Consider a vector space $\italic{V}$ and a finite number of vectors $\vectr{x}_i,\ldots,\vectr{x}_k \in \italic{V}$. Then, every $\vectr{v} \in \italic{V}$ of the form
+	\begin{align}
+		\vectr{v} = \lambda_1\vectr{x}_1 + \cdots + \lambda_k\vectr{x}_k =  \sum_{i=1}^{k} \lambda_i\vectr{x}_i \in \italic{V}
+	\end{align}
+	with $\lambda_1,\ldots,\lambda_k \in \real$ is a $\italic{linear combination}$ of the vectors $\vectr{x}_1,\cdots,\vectr{x}_k$.
+\end{definition}
+% base vectors of R^2
+Consider two vectors in $ \real^2 $, $\vectr{e}_1 = (1, 0)^{\top}$ and $\vectr{e}_2 = (0, 1)^{\top}$. It is common to see these written as $ \vectr{i} $ and $ \vectr{j} $ respectively. We can represent any vector in $ \real^2 $ as a linear combination of these two vectors. 
+% definition of linear independence
+\begin{definition}[Linear (In)dependence] 
+	\normalfont Let us consider a vector space $\italic{V}$ with $k \in \real$ and  $\vectr{x}_1,\cdots,\vectr{x}_k \in \italic{V}$. If there is a non-trivial combination, such that $\textbf{0} = \sum_{i=1}^{k} \lambda_i\vectr{x}_i$ with at least one $\lambda_i \ne 0$, the vectors  $\vectr{x}_1,\cdots,\vectr{x}_k$ are \italic{linearly dependent}. If only the trivial solution exists, i.e., $ \lambda_1 = \cdots = \lambda_k = 0 $ the vectors $\vectr{x}_1,\cdots,\vectr{x}_k $ are \italic{linearly independent}.
+\end{definition}
+% example of linear independence through linear combinations
+Lets consider the following set $\set{V}$ of vectors $\vectr{v}_1,\vectr{v}_2 $ and $ \vectr{v}_3$ where:
+\begin{align}
+	\set{V} = \left\{\begin{pmatrix} 1 \\ 2 \end{pmatrix},\begin{pmatrix} -2 \\ -4 \end{pmatrix},\begin{pmatrix} -4 \\ -1 \end{pmatrix} \right\}
+\end{align}
+And let $\vectr{y} \in \real^2$ be any linear combination that can be made from these vectors. Writing this out explicitly:
+\begin{align}
+	\vectr{y} &= \alpha \begin{pmatrix} 1 \\ 2 \end{pmatrix} + \beta \begin{pmatrix} -2 \\ -4 \end{pmatrix} + \omega \begin{pmatrix} -4 \\ -1 \end{pmatrix} \\
+	&= \alpha \begin{pmatrix} 1 \\ 2 \end{pmatrix} - 2\beta \begin{pmatrix} 1 \\ 2 \end{pmatrix} + \omega \begin{pmatrix} -4 \\ -1 \end{pmatrix} \\
+	&= (\alpha - 2\beta) \begin{pmatrix} 1 \\ 2 \end{pmatrix} + \omega \begin{pmatrix} -4 \\ -1 \end{pmatrix} \\
+\end{align} 

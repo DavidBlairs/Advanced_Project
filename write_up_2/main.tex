@@ -1,0 +1,53 @@
+\documentclass[a4paper,12pt]{book}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{amsfonts}
+\usepackage{setspace}
+\usepackage{helvet}
+\usepackage{graphicx}
+\usepackage{xstring}
+\usepackage[style = numeric, backend = bibtex]{biblatex}
+\graphicspath{ {./images/} }
+
+\newcommand{\set}[1]{\mathcal{#1}}
+\newcommand{\operation}{\bigotimes}
+\newcommand{\matrx}[1]{\bm{#1}}
+\newcommand{\vectr}[1]{\textbf{#1}}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\integers}{\mathbb{Z}}
+\newcommand{\italic}[1]{\textit{#1}}
+
+\begin{algorithmic}
+	\State $draft \gets 1$
+\end{algorithmic}
+
+\newcommand{\condsection}[1]{
+	\begin{algorithmic}
+		\If{$draft \equiv 1} \\section{#1}
+	\end{algorithmic}
+}
+
+% new environments 
+% recto  inverso 
+% set book class to one sided
+% add chapter levels
+% new environment / draft notes / if then else draft = 1 / check the internet for prior examples
+
+\doublespacing
+
+\newtheorem{definition}{Definition}[section]
+
+\addbibresource{sources/sources.bib}
+
+\begin{document}
+	% \include{parts/vector_space.tex}
+	% finite dimensional 
+	% fourier series
+	% 3d diagrams in excel 
+	% autofix 
+	
+	\condsection{Testing}
+	
+	% \printbibliography
+	
+\end{document}
