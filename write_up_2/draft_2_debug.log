@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.11.9)  15 FEB 2023 12:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.11.9)  3 MAR 2023 13:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -465,39 +465,40 @@ Package: blx-case-expl3 2022/07/12 v3.18b expl3 case changing code for biblatex
 ))
 \c@definition=\count400
 \c@proposition=\count401
-\@quotelevel=\count402
-\@quotereset=\count403
+\c@theorem=\count402
+\@quotelevel=\count403
+\@quotereset=\count404
  (draft_2_debug.aux)
 \openout1 = `draft_2_debug.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
 
 (C:\Users\David.Blair\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-
 pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count404
+\scratchcounter=\count405
 \scratchdimen=\dimen152
 \scratchbox=\box54
-\nofMPsegments=\count405
-\nofMParguments=\count406
+\nofMPsegments=\count406
+\nofMParguments=\count407
 \everyMPshowfont=\toks22
-\MPscratchCnt=\count407
+\MPscratchCnt=\count408
 \MPscratchDim=\dimen153
-\MPnumerator=\count408
-\makeMPintoPDFobject=\count409
+\MPnumerator=\count409
+\makeMPintoPDFobject=\count410
 \everyMPtoPDFconversion=\toks23
 )
 (C:\Users\David.Blair\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epst
@@ -528,15 +529,15 @@ Package biblatex Info: Data encoding 'utf8' specified.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'draft_2_debug.bbl' found.
  (draft_2_debug.bbl)
-Package biblatex Info: Reference section=0 on input line 35.
-Package biblatex Info: Reference segment=0 on input line 35.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 46.
+Package biblatex Info: Reference section=0 on input line 41.
+Package biblatex Info: Reference segment=0 on input line 41.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
 
 
 (C:\Users\David.Blair\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 46.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
 
 (C:\Users\David.Blair\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -544,55 +545,114 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 [2] [3]
-Overfull \hbox (3.15395pt too wide) in paragraph at lines 107--109
+Overfull \hbox (3.15395pt too wide) in paragraph at lines 115--117
 []\OT1/cmr/m/n/12 Let us con-sider a vec-tor space
  []
 
-[4]
-Overfull \hbox (11.85834pt too wide) in paragraph at lines 137--139
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5]
+Overfull \hbox (11.85834pt too wide) in paragraph at lines 145--147
 []\OT1/cmr/m/n/12 Consider a vec-tor space $[] =
  []
 
-[5] [6]
-Overfull \hbox (0.40736pt too wide) in paragraph at lines 181--183
+[6]
+Underfull \vbox (badness 3803) has occurred while \output is active []
+
+ [7]
+Overfull \hbox (0.40736pt too wide) in paragraph at lines 189--191
 \OT1/cmr/m/n/12 Because the col-umn vec-tors are lin-early de-pen-dent, by def-
 i-ni-tion 0.2.2[], $\OMS/cmsy/m/n/12 9\OML/cmm/m/it/12 ^^U[]; ^^U[]$
  []
 
-[7] [8] [9] [10
+[8] [9] [10] [11]
+Overfull \hbox (11.11574pt too wide) in paragraph at lines 290--291
+[]\OT1/cmr/m/n/12 Given a ma-trix $\OML/cmm/b/it/12 A \OMS/cmsy/m/n/12 2
+ []
 
-] [11] (draft_2_debug.aux)
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 324--328
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 324--328
+
+ []
+
+[13] [14]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [16]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17]
+[18]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [19]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [20]
+[21]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [22]
+[23]
+Overfull \hbox (1.39801pt too wide) in paragraph at lines 627--628
+[]$\OML/cmm/m/it/12 n \OT1/cmr/m/n/12 = 3$: $[](\OML/cmm/b/it/12 A\OT1/cmr/m/n/
+12 ) = \OML/cmm/m/it/12 a[]a[]a[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 a[]a[]a[] 
+\OT1/cmr/m/n/12 + \OML/cmm/m/it/12 a[]a[]a[] \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it
+/12 a[]a[]a[] \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 a[]a[]a[] \OMS/cmsy/m/n/12 
+^^@
+ []
+
+[24] [25] [26
+
+] [27] (draft_2_debug.aux)
 Package logreq Info: Writing requests to 'draft_2_debug.run.xml'.
 \openout1 = `draft_2_debug.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 10961 strings out of 475385
- 206012 string characters out of 2774075
- 754313 words of memory out of 3000000
- 32227 multiletter control sequences out of 15000+600000
+ 10975 strings out of 475385
+ 205967 string characters out of 2774075
+ 755380 words of memory out of 3000000
+ 32241 multiletter control sequences out of 15000+600000
  479285 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,15n,68p,1889b,1206s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 60i,18n,68p,1889b,1376s stack positions out of 10000i,1000n,20000p,200000b,80000s
 <C:/Users/David.Blair/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmbx12.pfb><C:/Users/David.Blair/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmex10.pfb><C:/Users/David.Blair/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/David.Blair/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/David.Bl
-air/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C
-:/Users/David.Blair/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmr12.pfb><C:/Users/David.Blair/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmr8.pfb><C:/Users/David.Blair/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Users/David.Blair/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/David.Blair/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/
-David.Blair/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12
-.pfb><C:/Users/David.Blair/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/symbols/msam10.pfb><C:/Users/David.Blair/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on draft_2_debug.pdf (11 pages, 179667 bytes).
+ts/cm/cmbsy10.pfb><C:/Users/David.Blair/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cmextra/cmbsy8.pfb><C:/Users/David.Blair/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/David.Blair/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/Da
+vid.Blair/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.p
+fb><C:/Users/David.Blair/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmmi12.pfb><C:/Users/David.Blair/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmmi8.pfb><C:/Users/David.Blair/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/David.Blair/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Users/D
+avid.Blair/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.p
+fb><C:/Users/David.Blair/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmr8.pfb><C:/Users/David.Blair/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmsl12.pfb><C:/Users/David.Blair/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/David.Blair/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/David.Bla
+ir/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/
+Users/David.Blair/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/sym
+bols/msam10.pfb><C:/Users/David.Blair/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/symbols/msbm10.pfb>
+Output written on draft_2_debug.pdf (27 pages, 251208 bytes).
 PDF statistics:
- 103 PDF objects out of 1000 (max. 8388607)
+ 174 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

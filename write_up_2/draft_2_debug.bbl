@@ -43,7 +43,7 @@
     \field{year}{1895}
   \endentry
 
-  \entry{mml_group_36}{book}{}
+  \entry{mml_book}{book}{}
     \name{author}{3}{}{%
       {{hash=DMP}{%
          family={Deisenroth},
@@ -74,111 +74,6 @@
     \field{sortinit}{D}
     \field{sortinithash}{D}
     \field{pages}{36}
-    \field{title}{Mathematics for machine learning}
-    \field{year}{2020}
-  \endentry
-
-  \entry{mml_vector_space_37}{book}{}
-    \name{author}{3}{}{%
-      {{hash=DMP}{%
-         family={Deisenroth},
-         familyi={D\bibinitperiod},
-         given={Marc\bibnamedelima Peter},
-         giveni={M\bibinitperiod\bibinitdelim P\bibinitperiod},
-      }}%
-      {{hash=FAA}{%
-         family={Faisal},
-         familyi={F\bibinitperiod},
-         given={A\bibnamedelima Aldo},
-         giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod},
-      }}%
-      {{hash=OCS}{%
-         family={Ong},
-         familyi={O\bibinitperiod},
-         given={Cheng\bibnamedelima Soon},
-         giveni={C\bibinitperiod\bibinitdelim S\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Cambridge University Press}%
-    }
-    \strng{namehash}{DMPFAAOCS1}
-    \strng{fullhash}{DMPFAAOCS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{D}
-    \field{sortinithash}{D}
-    \field{pages}{37}
-    \field{title}{Mathematics for machine learning}
-    \field{year}{2020}
-  \endentry
-
-  \entry{mml_linear_combinations_40}{book}{}
-    \name{author}{3}{}{%
-      {{hash=DMP}{%
-         family={Deisenroth},
-         familyi={D\bibinitperiod},
-         given={Marc\bibnamedelima Peter},
-         giveni={M\bibinitperiod\bibinitdelim P\bibinitperiod},
-      }}%
-      {{hash=FAA}{%
-         family={Faisal},
-         familyi={F\bibinitperiod},
-         given={A\bibnamedelima Aldo},
-         giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod},
-      }}%
-      {{hash=OCS}{%
-         family={Ong},
-         familyi={O\bibinitperiod},
-         given={Cheng\bibnamedelima Soon},
-         giveni={C\bibinitperiod\bibinitdelim S\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Cambridge University Press}%
-    }
-    \strng{namehash}{DMPFAAOCS1}
-    \strng{fullhash}{DMPFAAOCS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{D}
-    \field{sortinithash}{D}
-    \field{pages}{40}
-    \field{title}{Mathematics for machine learning}
-    \field{year}{2020}
-  \endentry
-
-  \entry{mml_generating_set_span_44}{book}{}
-    \name{author}{3}{}{%
-      {{hash=DMP}{%
-         family={Deisenroth},
-         familyi={D\bibinitperiod},
-         given={Marc\bibnamedelima Peter},
-         giveni={M\bibinitperiod\bibinitdelim P\bibinitperiod},
-      }}%
-      {{hash=FAA}{%
-         family={Faisal},
-         familyi={F\bibinitperiod},
-         given={A\bibnamedelima Aldo},
-         giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod},
-      }}%
-      {{hash=OCS}{%
-         family={Ong},
-         familyi={O\bibinitperiod},
-         given={Cheng\bibnamedelima Soon},
-         giveni={C\bibinitperiod\bibinitdelim S\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Cambridge University Press}%
-    }
-    \strng{namehash}{DMPFAAOCS1}
-    \strng{fullhash}{DMPFAAOCS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{D}
-    \field{sortinithash}{D}
-    \field{pages}{40}
     \field{title}{Mathematics for machine learning}
     \field{year}{2020}
   \endentry

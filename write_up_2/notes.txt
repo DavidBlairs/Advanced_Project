@@ -1,0 +1,2 @@
+things to include for the eignevalue decomposition:
+	

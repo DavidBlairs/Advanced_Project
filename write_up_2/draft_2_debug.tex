@@ -14,10 +14,15 @@
 \newcommand{\matrx}[1]{\bm{#1}}
 \newcommand{\vectr}[1]{\textbf{#1}}
 \newcommand{\real}{\mathbb{R}}
+\newcommand{\natral}{\mathbb{N}}
 \newcommand{\integers}{\mathbb{Z}}
 \newcommand{\italic}[1]{\textit{#1}}
 \newcommand{\rrank}[1]{rk_{row}(\matrx{#1})}
 \newcommand{\crank}[1]{rk_{col}(\matrx{#1})}
+\newcommand{\nexteq}{\refstepcounter{equation}\theequation}
+\newcommand{\dett}[1]{\text{det}(\matrx{#1})}
+\newcommand{\mdett}[1]{\text{det} \left ( #1 \right )}
+\newcommand{\lcomb}[1]{\sum_{i = 0}^{k} {#1} \vectr{v}_i}
 
 % new environments 
 % recto  inverso 
@@ -29,6 +34,7 @@
 
 \newtheorem{definition}{Definition}[section]
 \newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}{Theorem}[section]
 
 \addbibresource{sources/sources.bib}
 
@@ -43,7 +49,7 @@
 	% group definition
 	\begin{definition}
 		\normalfont
-		Let $ \mathcal{V} $ be a set and $ \operation $ denote a binary operation between elements of this set such that $ \operation : \set{G} \times \set{G} \rightarrow \set{G} $. $G := (\set{G}, \operation)$ is called a group  \cite{mml_group_36} if the following conditions are met and specific elements are present:
+		Let $ \mathcal{V} $ be a set and $ \operation $ denote a binary operation between elements of this set such that $ \operation : \set{G} \times \set{G} \rightarrow \set{G} $. $G := (\set{G}, \operation)$ is called a group  \cite[page 36]{mml_book} if the following conditions are met and specific elements are present:
 		\begin{enumerate}
 			\item (Closure) The binary operation between any two elements of the set will result in an element which is also part of the set: $ \operation : \forall x,y \in \set{G} : x \operation y \in \set{G} $.
 			\item (Associativity) The way in which elements of the set are combined within a larger expression does not affect the result: $ \forall x, y, z \in \set{G} : (x \operation y) \operation = x \operation (y \operation z) $.
@@ -62,7 +68,7 @@
 	
 	
 	% definition of a vector space
-	A vector space \cite{mml_vector_space_37} is a special type of group with some additional conditions. 
+	A vector space \cite[page 37]{mml_book} is a special type of group with some additional conditions. 
 	
 	\begin{definition}[Vector Space]
 		\normalfont A real-valued $\italic{vector space}$ $V = (\set{V}, +, \cdot)$ is a set $\set{V}$ with two operations:
@@ -75,12 +81,13 @@
 			\item $(\set{V}, +)$ is an Abelian group
 			\item (Distributivity) The outer operation can be ``Distributed'' across elements either before or after the inner operation has occurred: 
 			\begin{enumerate}
-				\item $\forall \lambda \in \real, \vectr{x}, \vectr{y} \in \mathcal{V}: \lambda \cdot \vectr{x} + \lambda \cdot \vectr{y}$
+				\item $\forall \lambda \in \real, \vectr{x}, \vectr{y} \in \mathcal{V}: \lambda (\vectr{x} + \vectr{y}) = (\lambda \cdot \vectr{x} + \lambda \cdot \vectr{y})$
 				\item $\forall \lambda, \psi \in \real, \vectr{x} \in \set{V}: (\lambda + \psi) \cdot \vectr{x} = \lambda \cdot \vectr{x} + \psi \cdot \vectr{x}$
 			\end{enumerate} 
 			\item Associativity (outer operation): $\forall \lambda, \psi \in \real, \vectr{x} \in \set{V}: \lambda \cdot (\psi \cdot \vectr{x}) = (\lambda \psi) \cdot \vectr{x}$
 			\item Neutral element with respect to the outer operation: $\forall \vectr{x} \in \set{V}: 1 \cdot \vectr{x} = \vectr{x}$
 		\end{enumerate}
+		\label{def:vector_space}
 	\end{definition}
 	
 	% generalisation of a vector
@@ -91,7 +98,7 @@
 	
 	% begin linear independence
 	\section{Linear Independence}
-	Linear independence \cite{mml_linear_combinations_40} is a property of a set of vectors which describes whether there is any redundancy with respect to the linear combinations of these vectors. 
+	Linear independence \cite[page 40]{mml_book} is a property of a set of vectors which describes whether there is any redundancy with respect to the linear combinations of these vectors. 
 	% definition of linear combination
 	\begin{definition}[Linear Combination]
 		\normalfont	Consider a vector space $\italic{V}$ and a finite number of vectors $\vectr{x}_i,\ldots,\vectr{x}_k \in \italic{V}$. Then, every $\vectr{v} \in \italic{V}$ of the form
@@ -99,6 +106,7 @@
 			\vectr{v} = \lambda_1\vectr{x}_1 + \cdots + \lambda_k\vectr{x}_k =  \sum_{i=1}^{k} \lambda_i\vectr{x}_i \in \italic{V}
 		\end{align}
 		with $\lambda_1,\ldots,\lambda_k \in \real$ is a $\italic{linear combination}$ of the vectors $\vectr{x}_1,\cdots,\vectr{x}_k$.
+		\label{def:linear_combinations}
 	\end{definition}
 	% base vectors of R^2
 	Consider two vectors in $ \real^2 $, $\vectr{e}_1 = (1, 0)^{\top}$ and $\vectr{e}_2 = (0, 1)^{\top}$. It is common to see these written as $ \vectr{i} $ and $ \vectr{j} $ respectively. We can represent any vector in $ \real^2 $ as a linear combination of these two vectors. 
@@ -130,7 +138,7 @@
 	which following from definition \ref{def:linear_independence} demonstrates that we have a linearly dependent set of vectors.
 	\section{Generating Set and Span}
 	
-	A generating set and the span \cite{mml_generating_set_span_44} of a set of vectors are concerned with the vector space produced by the linear combination of all the vectors in the set.
+	A generating set and the span \cite[page 44]{mml_book} of a set of vectors are concerned with the vector space produced by the linear combination of all the vectors in the set.
 	
 	% definition of a generating set and span
 	\begin{definition}[Generating Set and Span]
@@ -204,13 +212,434 @@
 	% proof that the row rank is equal to the column rank
 	\noindent\italic{Proof:}
 	Let $ \matrx{A} \in \real^{m \times n}$ be a matrix and let $ u = \crank{A} $. There exists a basis $ C = \{\vectr{c}_1, \ldots, \vectr{c}_u\} $ of $ m \times 1 $ column vectors that spans the same space spanned by the columns of $ \vectr{A} $. 
-	Let $ \matrx{B} = [\vectr{c}_1 | \vectr{c}_2 | \ldots | \vectr{c}_{u - 1} \vectr{c}_u] $ be a matrix where $ [\vectr{v}_1 | \vectr{v}_2] $ denotes the concatenation between two vectors $ \vectr{v}_1 $ and $ \vectr{v}_2 $. By definition \ref{def:linear_independence}, each column of $ \matrx{A} $ can be expressed as a linear combination of vectors in $ \matrx{B} $. If we collect the coefficients of these linear combinations into a matrix $ \matrx{D} $, we can represent $ \matrx{A} $ as $ \matrx{A} = \matrx{BD} $ where $ \matrx{D} \in \real^{m \times n}$. Equally, we can see that the rows of $ \matrx{BD} $ can be expressed as a linear combination of $ \matrx{D} $ with coefficients taken from $ B $. $ \therefore $, the span of the rows of $ \matrx{A} $ is no greater than the span of the rows of $ \matrx{D} $ because linear combinations of the rows of $ \matrx{A} $ can be written as linear combinations of the rows in $ \matrx{D} $. $ \matrx{D} $ has $ u $ rows. If they are linearly independent, the dimension of their span is $ u $. Otherwise, it has dimension $ < u $. $ \therefore $ the row rank is $ \leq u $ and so $ \rrank{A} \leq \crank{A} $. Similar reasoning will show that the $ \crank{A} \leq \rrank{A} $ and so $ \rrank{A} = \crank{A} $.
+	Let $ \matrx{B} = [\vectr{c}_1 | \vectr{c}_2 | \ldots | \vectr{c}_{u - 1} \vectr{c}_u] $ be a matrix where $ [\vectr{v}_1 | \vectr{v}_2] $ denotes the concatenation between two vectors $ \vectr{v}_1 $ and $ \vectr{v}_2 $. By definition \ref{def:linear_independence}, each column of $ \matrx{A} $ can be expressed as a linear combination of vectors in $ \matrx{B} $. If we collect the coefficients of these linear combinations into a matrix $ \matrx{D} $, we can represent $ \matrx{A} $ as $ \matrx{A} = \matrx{BD} $ where $ \matrx{D} \in \real^{m \times n}$. Equally, we can see that the rows of $ \matrx{BD} $ can be expressed as a linear combination of $ \matrx{D} $ with coefficients taken from $ B $. $ \therefore $, the span of the rows of $ \matrx{A} $ is no greater than the span of the rows of $ \matrx{D} $ because linear combinations of the rows of $ \matrx{A} $ can be written as linear combinations of the rows in $ \matrx{D} $. $ \matrx{D} $ has $ u $ rows. If they are linearly independent, the dimension of their span is $ u $. Otherwise, it has dimension $ < u $. $ \therefore $ the row rank is $ \leq u $ and so $ \rrank{A} \leq \crank{A} $ for any matrix $ \matrx{A} \in \real^{m \times n} $. If we let $ \matrx{K} \in \real^{n \times m} $ such that $ \matrx{K} = \matrx{A}^{\top} $, our previous result demonstrates that $ \rrank{K} \leq \crank{K} $. Because $ \matrx{K} = \matrx{A}^{\top} $, this means that $ \crank{A} \leq \rrank{A} $. This means that $ \crank{A} \leq \rrank{A} \leq \crank{A} $ and so proposition \ref{prop:row_rank_col_rank} that the $ \crank{A} = \rrank{A} $ is proved. 
 	
-	Bringing it all together, we get the rank of a matrix:
-	
+	Bringing it all together, we get the definition for the rank of a matrix:
+	% definition of rank
 	\begin{definition}[Rank]
 		\normalfont The number of linearly independent columns of a matrix $\textbf{A} \in \mathbb{R}^{m \times n}$ equals the number of linearly independent rows and is called the $\textit{rank}$ of $\textbf{A}$ and is denoted by $rk(\textbf{A})$.
 	\end{definition}
+
+	\section{Row Space and Column Space}
+	
+	Given a set of vectors $ \set{C} $, the $span[C]$ is the set of all possible linear combinations of vectors in $ \set{C} $. This also forms a vector space with the set $ \set{C} $ which in some sense is a consequence of the definition of the $ span $ being linear combinations of vectors. 
+	
+	\begin{proposition}
+		\normalfont Given a set of vectors $ \set{S} = \{v_1, v_2, \ldots, v_{k - 1}, v_k\} $, the $ span[\set{S}] $ forms a vector space.
+		\label{prop:span_is_vector_space}
+	\end{proposition}
+	\italic{Proof}: From definition \ref{def:generating_set_span} we know that all elements in $ span[\set{S}] $ can be represented as linear combinations of vectors in $ \set{S} $
+	\begin{align}
+		\lcomb{a_i} \in \set{S}, \forall a_1, a_2, \ldots a_k \in \real
+	\end{align}
+	For $ span[\set{S}] $ to be a vector space, it must meet certain conditions:
+	\begin{enumerate}
+		\item $ (\set{S}, +) $ forms an Abelian Group (commutative). This means it must meet the conditions for a group and be commutative:
+		\begin{enumerate}
+			\item (Closure)  $ \operation : \forall x,y \in \set{G} : x \operation y \in \set{G} $:
+			\begin{align}
+				\lcomb{a_i} + \lcomb{b_i} = \left[ \lcomb{(a_i + b_i)} \right] \in \set{S}, \forall a_i, b_i \in \real 
+			\end{align}
+			\item (Associativity) $ \forall x, y, z \in \set{G} : (x \operation y) \operation z = x \operation (y \operation z) $:
+			\begin{align}
+				\lcomb{a_i} + (\lcomb{b_i} + \lcomb{c_i}) = \lcomb{(a_i + b_i + c_i)} &=\\ (\lcomb{a_i} + \lcomb{b_i}) + \lcomb{c_i}, \forall a_i,b_i,c_i \in \real
+			\end{align}
+			\item (Neutral Element) $ \exists e  \in \set{G} \forall x \in \set{G} : x \operation e = x$ and $ e \operation x = x $:
+			\begin{align}
+				\lcomb{a_i} + \lcomb{(0)} = \lcomb{(0)} + \lcomb{a_i} = \lcomb{a_i}
+			\end{align}
+			\item (Inverse)  $ \forall x \in \set{G} \exists y \in \set{G} :  x \operation y = e$ and $ y \operation x = e $ where $ e $ is the inverse element: 
+			\begin{align}
+				\lcomb{a_i} + \lcomb{-a_i} = \lcomb{-a_i} + \lcomb{a_i} =\\ \lcomb{(a_i - a_i)} = \lcomb{(0)}
+			\end{align}
+			\item (Commutativity) $ \forall x, y \in \set{G}, x \operation y = y \operation x $:
+			\begin{align}
+				\lcomb{a_i} + \lcomb{b_i} = \lcomb{b_i} + \lcomb{a_i} = \lcomb{(a_i + b_i)}
+			\end{align}
+		\end{enumerate}
+		Therefore, $ (\set{S}, +) $ forms an Abelian Group. 
+		\item (Distributivity):
+		\begin{enumerate}
+			\item $\forall \lambda \in \real, \vectr{x}, \vectr{y} \in \mathcal{V}: \lambda (\vectr{x} + \vectr{y}) = (\lambda \cdot \vectr{x} + \lambda \cdot \vectr{y})$:
+			\begin{align}
+				\lambda \left[ \lcomb{a_i} + \lcomb{b_i} \right] = \lambda \lcomb{a_i} + \lambda \lcomb{b_i}, \forall \lambda \in \real
+			\end{align}
+			\item $\forall \lambda, \psi \in \real, \vectr{x} \in \set{V}: (\lambda + \psi) \cdot \vectr{x} = \lambda \cdot \vectr{x} + \psi \cdot \vectr{x}$:
+			\begin{align}
+				(\lambda + \phi)\lcomb{a_i} = \lambda \lcomb{a_i} + \phi \lcomb{a_i}
+			\end{align}
+		\end{enumerate} 
+		\item (Neutral Element) $ \exists e  \in \set{G} \forall x \in \set{G} : x \operation e = x$ and $ e \operation x = x $: 
+		\begin{align}
+			1 \cdot \lcomb{a_i} = \lcomb{a_i}
+	 	\end{align}
+	\end{enumerate}
+	Thus demonstrating that the $ span[\set{S}] $ is a vector space and proving proposition \ref{prop:span_is_vector_space}. 
+	
+	We need to introduce two more definitions: 
+	% definition of row space ammend: 
+	\begin{definition}[Row Space]
+		\normalfont Let $\set{C}$ be a set of vectors of length $n$ where each vector is a row of a matrix $\matrx{A} \in \real^{m \times n}$. The row space of the matrix $\set{A}$ is the vector space of the $span$ of the set of vectors $\set{C}$. 
+	\end{definition}
+	% definition of column space ammend:
+	\begin{definition}[Column Space]
+		\normalfont Let $\set{C}$ be a set of vectors of length $m$ where each vector is a column of a matrix $\matrx{A} \in \real^{m \times n}$. The column space of the matrix $\matrx{A}$ is the vector space of the $span$ of the set of vectors $\set{C}$. 
+	\end{definition}
+	% row space is not equal to the column space
+	\begin{proposition}[Row Space and Column Space]
+		\normalfont Given a matrix $ \matrx{A} \in \real^{m \times n} $, the row space is not always equal to the column space.
+	\end{proposition}
+	% proof of previous claim
+	\italic{Proof}: Let $ \matrx{A} $ be a matrix defined as follows with the set of all row vectors being $ \set{R} $ and the set of all column vectors being $ \set{C} $:
+	
+	\begin{align}
+		\matrx{A} = \begin{pmatrix}
+			1 & 3 \\
+			2 & 2 \\
+			3 & 1 
+		\end{pmatrix}
+	\end{align} 
+
+	The column space contains a vector $ \vectr{v}_1 $ such that:
+	
+	\begin{align}
+		\vectr{v}_1 = \begin{pmatrix}
+			1 \\
+			2 \\
+			3 
+		\end{pmatrix} + \begin{pmatrix}
+		3 \\
+		2 \\
+		1 
+	\end{pmatrix} = \begin{pmatrix}
+		4 \\
+		4 \\
+		4 
+	\end{pmatrix}
+ 	\end{align}
+	
+	It is clear that there exists no linear combination of the row vectors that could result in the vector $ \vectr{v}_1 $. Therefore, the $ span[\set{R}] $ does not contain a vector in $ span[\set{C}] $ and they cannot be equal. More generally, the row space and column space may not always be the same since they do not contain the same set of vectors. 
+	% brief intro to eignevectors and eigenvalues
+	\section{Eigenvalues and Eigenvectors} \label{sec:eigen}
+	One of the most important properties of a matrix in potentially all of linear algebra is the calculation / study of eigenvalues and eigenvectors. Its hard to overstate their significance. We will introduce them here and discuss a method for calculating them at a later point. 
+	\\\\
+	% definition of an eigenvalue and eigenvector
+	\begin{definition}
+		\normalfont Given a matrix $ \matrx{A} \in \real^{n \times n} $ where $ n \in \natral $ and two variables, a vector $ \vectr{u} \in \real^{n} $ and a scalar $ \lambda \in \real $, if these variables solve the following equation, $ \lambda $ is an ``eigenvalue" and $ \vectr{u} $ is an ``eigenvector" of $ \lambda $.
+		\begin{align}
+			\matrx{A} \vectr{u} = \lambda \vectr{u}
+		\end{align}
+		There may be up to $ n $ eigenvalues and corresponding eigenvectors for the matrix $ \matrx{A} $.
+		\label{def:eigenvalue_eigenvector} 
+	\end{definition} 
+	Before we can delve into a method for calculating the eigenvalues and eigenvectors, we need to explore another property of a matrix known as the ``determinant".
+	
+	% section on determinant
+	\section{Determinant}
+	The determinant is a property of a matrix that describes whether it is a non-singular (invertible) matrix. Consider the following set of simultaneous equations: 
+	
+	\begin{align}
+		2x - 3y &= 4 \\
+		5x + 7y &= 9
+	\end{align}
+	
+	% solving simultaneous equations using school method
+	A standard way to solve this is by rearranging one of the equations, substituting this into the other equation and putting the derived value back into the original:
+	
+	\begin{align*}
+		x = \frac{1}{2} (4 + 3y) \\
+		5\frac{1}{2}(4 + 3y) + 7y = 9 \\
+		10 + \frac{15}{2} y + 7y = 9 \\
+		10 + \frac{29}{2} y = 9 \\
+		y = - \frac{29}{2} \tag{\nexteq} \\ 
+		\\
+		x = \frac{1}{2}(4 + 3(- \frac{29}{2})) \\
+		x = \frac{55}{29} \tag{\nexteq}
+	\end{align*}
+
+	This method is sufficient when we are solving two equations with two unknowns but it becomes more tedious when we are working with larger systems of equations. An alternative method is to setup a matrix equation and use methods from linear algebra to determine the unknowns. We first setup our system by collecting together the coefficients rewriting the system: 
+	% matrix representation of the set of equations
+	\begin{equation}
+		\begin{aligned}
+			2x - 3y &= 4 \\
+			5x + 7y &= 9
+		\end{aligned}
+		\xrightarrow{\text{Matrix Representation}}
+		\begin{bmatrix}
+			2 & -3 \\
+			5 & 7 
+		\end{bmatrix}
+		\begin{bmatrix}
+			x \\
+			y
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+			4 \\
+			9
+		\end{bmatrix}
+	\end{equation}
+	
+	This representation allows us to use all the tools that linear algebra provides. If we take our matrix equation and rearrange the variables, we get a way of deriving the solution for $ x $ and $ y $:
+	% solution rearranging
+	\begin{equation}
+		\begin{array}{c}
+			\begin{aligned}
+				2x - 3y &= 4 \\
+				5x + 7y &= 9
+			\end{aligned}
+			\\ \\
+			\bigg\downarrow\vcenter{ }
+			\\ \\
+			\begin{aligned}
+				\begin{bmatrix}
+					2 & -3 \\
+					5 & 7 
+				\end{bmatrix}&
+				\begin{bmatrix}
+					x \\
+					y
+				\end{bmatrix}
+				=
+				\begin{bmatrix}
+					4 \\
+					9
+				\end{bmatrix} \\
+			\matrx{A} \vectr{v} &= \vectr{B} \\
+			\vectr{v} &= \matrx{A}^{-1} \vectr{B}
+			\end{aligned}
+		\end{array}
+	\end{equation}
+	% inverse of a 2x2 matrix
+	The inverse of a matrix $ \matrx{A} $, denoted as $ \matrx{A}^{-1} $, is a matrix that satisfies the equation $ \matrx{A} \matrx{A}^{-1} = \matrx{I} $ where $ \matrx{I} $ is the identity matrix. For the case of a matrix $ \matrx{A} \in \real^{2 \times 2} $, the inverse can be calculated using the ``inverse matrix formula": 
+	\begin{equation}
+		\matrx{A} = \begin{bmatrix}
+			a & b \\
+			c & d \\
+		\end{bmatrix}
+		\hspace{10pt}
+		\matrx{A}^{-1} = \frac{1}{ad-bc} \begin{bmatrix}
+			d & -b \\
+			-c & a \\
+		\end{bmatrix}
+		\label{eq:2_2_inv}
+	\end{equation}
+	With this, we can calculate the solution to our system of linear equations:
+	% matrix solution to the matrix equation
+	\begin{align}
+		\begin{bmatrix}
+			x \\ 
+			y
+		\end{bmatrix} &= \begin{bmatrix}
+			2 & -3 \\
+			5 & 7 
+		\end{bmatrix}^{-1} \begin{bmatrix}
+			4 \\
+			9
+		\end{bmatrix} \\
+		&= \frac{1}{(2)(7)-(-3)(5)} \begin{bmatrix}
+			7 & 3 \\
+			-5 & 2 \\
+		\end{bmatrix} \begin{bmatrix}
+			4 \\
+			9
+		\end{bmatrix} \\
+		 &= \frac{1}{29} \begin{bmatrix}
+			7 & 3 \\
+			-5 & 2
+		\end{bmatrix} \begin{bmatrix}
+			4 \\
+			9
+		\end{bmatrix} \\
+		&= \begin{bmatrix}
+			55 \\
+			-2
+		\end{bmatrix} \\
+		&= \begin{bmatrix}
+			\frac{55}{29} \\
+			- \frac{2}{29}
+		\end{bmatrix} = \begin{bmatrix}
+		x \\
+		y
+	\end{bmatrix}
+	\end{align}
+	This method could be considered a better choice because it generalises for much larger matrices. A part of the solution involved calculating the inverse of a matrix. In certain cases, the inverse of a matrix may not exist. This brings us to the determinant. The determinant is a scalar value derived as a function of all the elements of a matrix. It is only defined on squares matrices and if it is non-zero, the matrix is invertible. For a matrix $ \matrx{A} \in \real^{2 \times 2} $, the determinant of $ \matrx{A} $, denoted by $ \dett{A} $, is given by:
+	% determinant of a 2x2 matrix
+	\begin{align}
+		\matrx{A} = \begin{bmatrix}
+			a & b \\
+			c & d
+		\end{bmatrix}
+		\hspace{10pt}
+		\dett{A} = ad - bc
+	\end{align}
+	This makes sense for in the case of our system of linear equations. You can see in equation \ref{eq:2_2_inv} where the determinant features in the equation for the inverse of the matrix. If $ \dett{A} = 0$ then the inverse cannot be calculated. This same condition applies to equations for the inverse of larger matrices that don't explicitly involve $ \dett{A} $. For square matrices $ \matrx{A} \in \real^{n \times n}, \matrx{B} \in \real^{m \times m} $, the following properties hold:
+	
+	\begin{enumerate}
+		\item $ \dett{AB} = \dett{A}\dett{B} $
+		\item $ \dett{A}^{-1} = \frac{1}{\dett{A}} $
+		\item $ \dett{A} = \dett{A^{\top}}$
+	\end{enumerate}
+
+	We can now revisit our discussion from section \ref{sec:eigen} on eigenvalues and eigenvectors. We can use the determinant to calculate these values. We can take the definition \ref{def:eigenvalue_eigenvector} and rewrite it into a form that we can solve:
+	\begin{align}
+		\matrx{A} \vectr{u} &= \lambda \vectr{u} \\
+		\matrx{A} \vectr{u} &= \lambda \matrx{I} \vectr{u} \\
+		(\matrx{A} - \lambda \matrx{I}) \vectr{u} &= \vectr{0} 
+		\label{eq:proof_eigen_det}
+	\end{align}
+	
+	\begin{proposition}
+		\normalfont For a matrix $ \matrx{A} \in \real^{n \times n} $ and an eigenvalue $ \lambda \in \real $ with corresponding eigenvector $ \vectr{u} \in \real^{n} $: 
+		\begin{align}
+			\dett{\matrx{A} - \lambda \matrx{I}} = 0
+		\end{align}
+		\label{prop:det_eigen_eq}
+	\end{proposition} 
+	\italic{Proof}: Lets presume that the matrix $ \matrx{A} - \lambda \matrx{I} $ has an inverse so that $ (\matrx{A} - \lambda \matrx{I})^{-1} $ exists. Given \ref{eq:proof_eigen_det}, the following equation would be true: 
+	\begin{align}
+		\vectr{u} &= \matrx{I} \vectr{u} \\
+		&= ((\matrx{A} - \lambda \matrx{I})^{-1} (\matrx{A} - \lambda \matrx{I})) \vectr{u} \\
+		&= (\matrx{A} - \lambda \matrx{I})^{-1} ((\matrx{A} - \lambda \matrx{I}) \vectr{u}) \\
+		&= (\matrx{A} - \lambda \matrx{I})^{-1} 0 \\
+		&= 0
+	\end{align}
+	However, given that $ \vectr{u} \ne 0 $, we have a contradiction and the inverse of $ \matrx{A} - \lambda \matrx{I} $ cannot exist. Therefore $ \dett{\matrx{A} - \lambda \matrx{I}} = 0 $.
+	We now have an equation involving the eigenvalues of a matrix that we can use to calculate that and the eigenvectors. Consider the following example for a matrix $ \matrx{A} \in \real^{2 \times 2} $:
+	\begin{align}
+		\matrx{A} = \begin{bmatrix}
+			0 & 1 \\
+		   -2 & -3 
+		\end{bmatrix}
+	\end{align}
+	If we put this into $ \dett{\matrx{A} - \lambda \matrx{I}} = 0 $ then we can calculate our eigenvalues:
+	\begin{align}
+		\dett{\matrx{A} - \lambda \matrx{I}} &= \mdett{\begin{bmatrix}
+				0 & 1 \\
+				-2 & -3 
+			\end{bmatrix} - \lambda \begin{bmatrix}
+				1 & 0 \\
+				0 & 1
+		\end{bmatrix}} \\ &= \mdett{\begin{bmatrix}
+				-\lambda & 1 \\
+				-2 & -3 - \lambda
+		\end{bmatrix}} \\
+		&= (-\lambda)(-3-\lambda) - (1)(-2) \\
+		\label{eq:char_det} 0 &= \lambda^{2} + 3\lambda + 2 \\
+		0 &= (\lambda + 2)(\lambda + 1) \Rightarrow \lambda_1 = -2, \lambda_2 = -1
+	\end{align}
+	Now that we have our eigenvalues, we can use equation \ref{eq:proof_eigen_det} to find the corresponding eigenvectors:
+	\begin{align}
+		\text{for } \lambda_1 = -1:&
+		(\matrx{A} - \lambda \matrx{I}) \vectr{u}_1 = \vectr{0} \\
+		& \begin{bmatrix}
+			1 & 1 \\
+			-2 & -2
+		\end{bmatrix} \begin{bmatrix}
+			\vectr{u}_{1,1} \\
+			\vectr{u}_{1,2}
+		\end{bmatrix} = \begin{bmatrix}
+			0 \\
+			0
+		\end{bmatrix} \\
+		&\therefore \vectr{u}_{1,1} = -\vectr{u}_{1,2} \Rightarrow \vectr{u}_1 = \begin{bmatrix}
+			1 \\
+			-1
+		\end{bmatrix} \\ \\
+		\text{for } \lambda_1 = -2:&
+		(\matrx{A} - \lambda \matrx{I}) \vectr{u}_2 = \vectr{0} \\
+		& \begin{bmatrix}
+			2 & 1 \\
+			-2 & -1
+		\end{bmatrix} \begin{bmatrix}
+			\vectr{u}_{2,1} \\
+			\vectr{u}_{2,2}
+		\end{bmatrix} = \begin{bmatrix}
+			0 \\
+			0
+		\end{bmatrix} \\
+		&\therefore \vectr{u}_{2,1} = -2 \vectr{u}_{2,2} \Rightarrow \vectr{u}_2 = \begin{bmatrix}
+			1 \\
+			-2
+		\end{bmatrix}
+	\end{align}
+	
+	\begin{proposition}
+		\normalfont Given a matrix $ \matrx{A} $ with distinct eigenvalues $ \{\lambda_1,\lambda_2,\ldots \\,\lambda_{k - 1},\lambda_k\} $ and corresponding eigenvectors $ \{\vectr{v}_1,\vectr{v}_2,\ldots,\vectr{v}_{k - 1},\vectr{v}_k\} $, the set of eigenvectors are linearly independent.
+		\label{prop:eigenvectors_linearly_independent}
+	\end{proposition}
+	\italic{Proof}: From definition \ref{def:eigenvalue_eigenvector} we know that each eigenvalue and eigenvector pair satisfies $ \matrx{A}\vectr{v}_i = \lambda_i \vectr{v}_i \forall i = 1,\ldots,k$. from definition \ref{def:linear_independence} we know that a set of vectors is linearly independent if no non-trivial linear combinations (see definition \ref{def:linear_combinations}) equate to the zero vector. Knowing these definitions, we can use induction to prove the proposition.
+	Consider the case when $ k = 1 $. A set with only one vector $ \vectr{v}_1 $ is always linearly independent. Now presume that in the case of $ k = i $, the set of vectors $ \{\vectr{v}_1,\vectr{v}_2,\ldots,\vectr{v}_{i - 1},\vectr{v}_i\} $ is linearly independent. if we now set $ k = i + 1 $, we are concerned with determining if there is any non-trivial linear combinations that result in the zero vector in equation \ref{eq:eigenvector_linear_independence_k_1}. 
+	\begin{align}
+		a_1 \vectr{v}_1 + a_2 \vectr{v}_2 + \ldots + a_{i - 1} \vectr{v}_{i - 1} + a_i \vectr{v}_i + a_{i + 1} \vectr{v}_{i + 1} = \vectr{0}
+		\label{eq:eigenvector_linear_independence_k_1}
+	\end{align}
+	Firstly, we can alter this equation in two ways:. Firstly, we multiply both sides by $ \matrx{A} $ and simplify:
+	\begin{align}
+		\matrx{A}(a_1 \vectr{v}_1 + a_2 \vectr{v}_2 + \ldots + a_{i - 1} \vectr{v}_{i - 1} + a_i \vectr{v}_i + a_{i + 1} \vectr{v}_{i + 1}) &= \matrx{A}\vectr{0} \nonumber \\
+		a_1 \matrx{A}\vectr{v}_1 + a_2 \matrx{A}\vectr{v}_2 + \ldots + a_{i - 1} \matrx{A}\vectr{v}_{i - 1} + a_i \matrx{A}\vectr{v}_i + a_{i + 1} \matrx{A}\vectr{v}_{i + 1} &= \vectr{0} \nonumber \\
+		\label{eq:eigenvector_linear_independence_eq_1} a_1 \lambda_1 + a_2 \lambda_2 + \ldots + a_{i - 1} \lambda_{i - 1} + a_i \lambda_i + a_{i + 1} \lambda_{i + 1} &= \vectr{0} 
+	\end{align}
+	Secondly, we can multiply both sides by $ \lambda_{i + 1} $:
+	\begin{align}
+		\lambda_{i + 1}(a_1 \vectr{v}_1 + a_2 \vectr{v}_2 + \ldots + a_{i - 1} \vectr{v}_{i - 1} + a_i \vectr{v}_i + a_{i + 1} \vectr{v}_{i + 1}) &= \lambda_{i + 1}\vectr{0} \nonumber \\
+		\label{eq:eigenvector_linear_independence_eq_2} a_1\lambda_{i + 1} \vectr{v}_1 + a_2\lambda_{i + 1} \vectr{v}_2 + \ldots +  + a_i\lambda_{i + 1} \vectr{v}_i + a_{i + 1}\lambda_{i + 1} \vectr{v}_{i + 1} &= \vectr{0}
+	\end{align}
+	If we subtract equation \ref{eq:eigenvector_linear_independence_eq_2} from \ref{eq:eigenvector_linear_independence_eq_1}:
+	\begin{align}
+		a_1 (\lambda_1 - \lambda_{i + 1}) \vectr{v}_1 + a_2 (\lambda_2 - \lambda_{i + 1}) \vectr{v}_2 + \ldots \nonumber \\+ a_i (\lambda_i - \lambda_{i + 1}) \vectr{v}_i + a_{i + 1} (\lambda_{i + 1} - \lambda_{i + 1}) \vectr{v}_{i + 1} &= \vectr{0} 
+	\end{align}
+	Since the difference between any two distinct eigenvalues is non-zero and all eigenvectors are non-zero, $ a_1 = a_2 = \ldots = a_i = 0 $. substituting these into equation \ref{eq:eigenvector_linear_independence_k_1}, This is reduced down to $ a_{i + 1}\vectr{v}_{i + 1} = \vectr{0}$. Since $ \vectr{v}_{i + 1} \ne 0 $,  $ a_{i + 1} = 0 $. This means that in the case of $ k = i + 1 $, the eigenvectors are linearly independent and proposition \ref{prop:eigenvectors_linearly_independent} is proven by induction.
+	
+	In equation \ref{eq:char_det}, we have a polynomial, the solutions of which are the eigenvalues of the matrix. This is called the characteristic equation. It is always the case that a square matrix of size $ n $ will have an $ n $th degree polynomial as its characteristic equation. This leads us to an important finding.
+	
+	\begin{proposition}
+		\normalfont Given a matrix $ \matrx{A} \in \real^{n \times n} $ where $ n \in \natral $ and eigenvalues $ \lambda_1,\ldots,\lambda_k $: 
+		\begin{align}
+			\dett{\matrx{A}} = \prod_{i = 1}^{k} \lambda_i
+		\end{align}
+		where $ k \leq n $. 
+		\label{prop:det_prod_eigen}
+	\end{proposition}
+	\italic{Proof}: 
+	\begin{align}
+		&\dett{\matrx{A} - \lambda \matrx{I}} = P(\lambda) \\ 
+		&= (\lambda_1 - \lambda)(\lambda_2 - \lambda)\ldots(\lambda_{n - 1} - \lambda)(\lambda_n - \lambda)
+	\end{align}
+	If we let $ \lambda = 0$:
+	\begin{align}
+		\dett{A - \lambda\matrx{I}} &= P(\lambda) \\
+		\dett{A} &= P(0) \\
+		&= (\lambda_1 - 0)(\lambda_2 - 0)\ldots(\lambda_{n - 1} - 0)(\lambda_n - 0) \\
+		&= \prod_{i = 1}^{n} \lambda_i
+	\end{align}
+	And therefore, proposition \ref{prop:det_prod_eigen} is true. Furthermore, this fact can allow us to demonstrate the connection between the determinant of a matrix and whether it is invertible.
+	\begin{proposition}
+		\normalfont Given a matrix $ \matrx{A} \in \real^{n \times n} $ where $ n \in \natral $, $ \matrx{A}^{-1} $ exists $\iff$ $ \dett{A} \ne 0 $.
+		\label{prop:det_eq_inv}
+	\end{proposition}
+	\italic{Proof}: Lets presume that $ \matrx{A}^{-1} $ exists. Then $ \matrx{A}\vectr{w} = \vectr{f} $ has a unique solution $ \vectr{w} = \matrx{A}^{-1}\vectr{f} $ for every $ \vectr{f} $.  We know that from proposition \ref{prop:det_prod_eigen} the only way $ \dett{A} = 0 $ is if one of its eigenvalues is $ 0 $. From definition \ref{prop:det_eigen_eq}, we know that $ (\matrx{A} - \lambda\matrx{I})\vectr{v} = 0 $ for any eigenvalue $ \lambda $ of $ \matrx{A} $ and its corresponding eigenvector $ \vectr{v} $. If one of our eigenvalues is equal to $ 0 $, then $ (\matrx{A} - 0\matrx{I})\vectr{v} = 0$ and $ \matrx{A}\vectr{v} = 0 $. If $ \matrx{A}\vectr{w} = \vectr{f} $ then we can say that $ \matrx{A}(\vectr{w} + \vectr{v}) = \vectr{f} $. This means that if $ \matrx{A} $ has an inverse and $ \dett{A} = 0 $, $ \matrx{A}\vectr{w} = \vectr{f} $ has multiple solutions, namely $ \vectr{w} $ and $ \vectr{w} + \vectr{v} $. Therefore, either the inverse does not exist or $ \dett{A} \ne 0 $. In other words, the inverse of $ \matrx{A} $ only exists when $ \dett{A} \ne 0$ and proposition \ref{prop:det_eq_inv} is proven. 
+
+	We can summarise how to calculate determinants for larger matrices. Given a square matrix $ \matrx{A} \in \real^{n \times n} $:
+	\begin{enumerate}
+		\item $ n = 1 $: $ \dett{A} = \dett{a_{11}} $.
+		\item $ n = 2 $: $ \dett{A} = a_{11}a_{22} - a_{12}a_{21} $.
+		\item $ n = 3 $: $ \dett{A} = a_{11}a_{22}a_{33} + a_{21}a_{32}a_{13} + a_{31}a_{12}a_{23} - a_{31}a_{22}a_{13} - a_{11}a_{32}a_{23} - a_{21}a_{12}a_{33}$.
+		\item For $ n > 3 $: \begin{theorem}
+			\normalfont (Laplace Expansion). Consider a matrix $ \matrx{A} \in \real^{n \times n} $. Then, for all $ j = 1,\ldots,n $:
+			\begin{enumerate}
+				\item Expansion along column $ j $:
+				\begin{align}
+					\dett{A} = \sum_{k = 1}^{n} (-1)^{k + j} a_{kj} \dett{A_{k,j}}
+				\end{align}
+				\item Expansion along row $ j $:
+				\begin{align}
+					\dett{A} = \sum_{k = 1}^{n} (-1)^{k + j} a_{jk} \dett{A_{j,k}}
+				\end{align}
+			\end{enumerate}
+		Where $ \matrx{A}_{k,j} \in \real^{(n - 1) \times (n - 1)} $ is the submatrix of $ \matrx{A} $ that we obtain when deleting row $ k $ and column $ j $. 
+		\end{theorem}
+	\end{enumerate}
 
 	\printbibliography
 \end{document}

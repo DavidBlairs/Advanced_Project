@@ -39,7 +39,7 @@
 	
 	% set definition
 	A set is a collection of mathematical objects such as numbers, lines or potentially other sets. They were first formalised by George Cantor in 
-	1895 \cite{cantor1895beitrage} as being either infinite or finite and containing distinct elements. 
+	1895 \cite[page 23]{cantor1895beitrage} as being either infinite or finite and containing distinct elements. 
 	% group definition
 	\begin{definition}
 		\normalfont
@@ -165,7 +165,31 @@
 	
 	% proof that the column rank = dim(span(columns vectors of A))
 	Given a matrix $ \matrx{A} \in \real^{n \times m} $, the row rank (denoted as $ \rrank{A} $) and the column rank (denoted as $ \crank{A} $) describe the number of linearly independent row vectors and column vectors respectively.
-	
+	% proposition for dim = rank
+	\begin{proposition}
+		\normalfont For a matrix $ \matrx{A} \in \real^{n \times m} $:
+		\begin{align}
+			\crank{A} = dim(span[\matrx{A}_{.1}, \ldots, \matrx{A}_{.m}])
+		\end{align}
+		\label{prop:c_rank_dim}
+	\end{proposition}
+	% example for 2x2 case
+	\noindent\italic{Example:}
+	Consider a matrix $A = [\matrx{A}_{.1} | \matrx{A}_{.2}]$ where $ \matrx{A}_{.1} $ and $ \matrx{A}_{.2} $ are linearly dependent. The $ span $ of $\set{B} = \{\matrx{A}_{.1}, \matrx{A}_{.2}\} $ is all the linear combinations that can be created from the two vectors. Let $ s \in span[B] $:  
+	\begin{align}
+		s = \lambda_1 \matrx{A}_{.1} + \lambda_2 \matrx{A}_{.2}, \hspace{10pt}\forall \lambda_1, \lambda_2 \in \real
+	\end{align}
+	Because the column vectors are linearly dependent, by definition \ref{def:linear_independence}, 	$ \exists \lambda_3, \lambda_4$ such that: 
+	\begin{align}
+		\lambda_3 \matrx{A}_{.1} + \lambda_4 \matrx{A}_{.2} &= \vectr{0} \\
+		\matrx{A}_{.1} &= \frac{\lambda_4}{\lambda_3} \matrx{A}_{.2}
+	\end{align}
+	Meaning that every linear combination can be written as:
+	\begin{align}
+		s &= \lambda_1 \matrx{A}_{.1} + \lambda_2 \matrx{A}_{.2} \\
+		&= (-\lambda_1 \frac{\lambda_4}{\lambda_3} + \lambda_4) \matrx{A}_{.2}
+	\end{align}
+	This means that $ \set{C} = \{\matrx{A}_{.2}\} $ forms a basis. Because the number of elements in this set is 1, the dimension of $ span[C] $ is 1. Because both column vectors of $ \matrx{A} $ are linearly independent, the $ \crank{A} = 1$ and so proposition \ref{prop:c_rank_dim} is shown to be true for the case of a matrix with two column vectors. Similar methods can show that this is true for larger matrices. Furthermore, the same reasoning can be used to conclude that $ \rrank{\matrx{A}} = dim(span[\matrx{A}_{1.}, \ldots, \matrx{A}_{n.}]) $.
 	% row rank = column rank proposition
 	\begin{proposition}
 		\normalfont Given a matrix $ \matrx{A} \in \real^{n \times m}$, the following statement is always true:
@@ -180,7 +204,9 @@
 	% proof that the row rank is equal to the column rank
 	\noindent\italic{Proof:}
 	Let $ \matrx{A} \in \real^{m \times n}$ be a matrix and let $ u = \crank{A} $. There exists a basis $ C = \{\vectr{c}_1, \ldots, \vectr{c}_u\} $ of $ m \times 1 $ column vectors that spans the same space spanned by the columns of $ \vectr{A} $. 
-	Let $ \matrx{B} = [\vectr{c}_1 | \vectr{c}_2 | \ldots | \vectr{c}_{u - 1} \vectr{c}_u] $ be a matrix where $ [\vectr{v}_1 | \vectr{v}_2] $ denotes the concatenation between two vectors $ \vectr{v}_1 $ and $ \vectr{v}_2 $. By definition \ref{def:linear_independence}, each column of $ \matrx{A} $ can be expressed as a linear combination of vectors in $ \matrx{B} $. If we collect the coefficients of these linear combinations into a matrix $ \matrx{D} $, we can represent $ \matrx{A} $ as $ \matrx{A} = \matrx{BD} $ where $ \matrx{D} \in \real^{m \times n}$. Equally, we can see that the rows of $ \matrx{BD} $ can be expressed as a linear combination of $ \matrx{D} $ with coefficients taken from $ B $. $ \therefore $, the span of the rows of $ \matrx{A} $ is no greater than the span of the rows of $ \matrx{D} $ because linear combinations of the rows of $ \matrx{A} $ can be written as linear combinations of the rows in $ \matrx{D} $. $ \matrx{D} $ has $ u $ rows. If they are linearly independent, the dimension of their span is $ u $. Otherwise, it has dimension $ < u $. $ \therefore $ the row rank is $ \leq u $ and so $ \rrank{A} \leq \crank{A} $
+	Let $ \matrx{B} = [\vectr{c}_1 | \vectr{c}_2 | \ldots | \vectr{c}_{u - 1} \vectr{c}_u] $ be a matrix where $ [\vectr{v}_1 | \vectr{v}_2] $ denotes the concatenation between two vectors $ \vectr{v}_1 $ and $ \vectr{v}_2 $. By definition \ref{def:linear_independence}, each column of $ \matrx{A} $ can be expressed as a linear combination of vectors in $ \matrx{B} $. If we collect the coefficients of these linear combinations into a matrix $ \matrx{D} $, we can represent $ \matrx{A} $ as $ \matrx{A} = \matrx{BD} $ where $ \matrx{D} \in \real^{m \times n}$. Equally, we can see that the rows of $ \matrx{BD} $ can be expressed as a linear combination of $ \matrx{D} $ with coefficients taken from $ B $. $ \therefore $, the span of the rows of $ \matrx{A} $ is no greater than the span of the rows of $ \matrx{D} $ because linear combinations of the rows of $ \matrx{A} $ can be written as linear combinations of the rows in $ \matrx{D} $. $ \matrx{D} $ has $ u $ rows. If they are linearly independent, the dimension of their span is $ u $. Otherwise, it has dimension $ < u $. $ \therefore $ the row rank is $ \leq u $ and so $ \rrank{A} \leq \crank{A} $. Similar reasoning will show that the $ \crank{A} \leq \rrank{A} $ and so $ \rrank{A} = \crank{A} $.
+	
+	Bringing it all together, we get the rank of a matrix:
 	
 	\begin{definition}[Rank]
 		\normalfont The number of linearly independent columns of a matrix $\textbf{A} \in \mathbb{R}^{m \times n}$ equals the number of linearly independent rows and is called the $\textit{rank}$ of $\textbf{A}$ and is denoted by $rk(\textbf{A})$.
