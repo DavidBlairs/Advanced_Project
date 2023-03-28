@@ -6,6 +6,7 @@
 \usepackage{setspace}
 \usepackage{helvet}
 \usepackage{graphicx}
+\usepackage{setspace}
 \usepackage[style = numeric, backend = bibtex]{biblatex}
 \graphicspath{ {./images/} }
 
@@ -23,6 +24,7 @@
 \newcommand{\dett}[1]{\text{det}(\matrx{#1})}
 \newcommand{\mdett}[1]{\text{det} \left ( #1 \right )}
 \newcommand{\lcomb}[1]{\sum_{i = 0}^{k} {#1} \vectr{v}_i}
+\newcommand{\vecspace}[1]{#1}
 
 % new environments 
 % recto  inverso 
@@ -31,6 +33,7 @@
 % new environment / draft notes / if then else draft = 1 / check the internet for prior examples
 
 \doublespacing
+\setstretch{1.5}
 
 \newtheorem{definition}{Definition}[section]
 \newtheorem{proposition}{Proposition}[section]
@@ -41,7 +44,7 @@
 \begin{document}
 	\section{Vector Space}
 	% vector space introduction
-	A vector space is an algebraic structure that consists of a set of vectors and two operations defined on these vectors: vector addition and scalar multiplication. The elements of the vector space are called vectors, which can be added together and multiplied by numbers, called scalars. The operations of vector addition and scalar multiplication must satisfy a set of axioms, which ensure that the resulting vectors remain within the vector space. It will be helpful to describe a vector space by first explaining the concept of a set and a group. 
+	A vector space is an algebraic structure that consists of a set of vectors and two operations defined on these vectors: vector addition and scalar multiplication. Vectors can be added together and multiplied by numbers, called scalars. The operations of vector addition and scalar multiplication must satisfy a set of axioms, which ensure that the resulting vectors remain within the vector space. It will be helpful to describe a vector space by first explaining the concept of a set and a group. 
 	
 	% set definition
 	A set is a collection of mathematical objects such as numbers, lines or potentially other sets. They were first formalised by George Cantor in 
@@ -49,10 +52,10 @@
 	% group definition
 	\begin{definition}
 		\normalfont
-		Let $ \mathcal{V} $ be a set and $ \operation $ denote a binary operation between elements of this set such that $ \operation : \set{G} \times \set{G} \rightarrow \set{G} $. $G := (\set{G}, \operation)$ is called a group  \cite[page 36]{mml_book} if the following conditions are met and specific elements are present:
+		Let $ \mathcal{V} $ be a set and $ \operation $ denote a binary operation between elements of this set such that $ \operation : \set{G} \times \set{G} \rightarrow \set{G} $. $G := (\set{G}, \operation)$ is called a group  \cite[page 36]{mml_book} if the following conditions are met:
 		\begin{enumerate}
 			\item (Closure) The binary operation between any two elements of the set will result in an element which is also part of the set: $ \operation : \forall x,y \in \set{G} : x \operation y \in \set{G} $.
-			\item (Associativity) The way in which elements of the set are combined within a larger expression does not affect the result: $ \forall x, y, z \in \set{G} : (x \operation y) \operation = x \operation (y \operation z) $.
+			\item (Associativity) The order in which group operations are performed on a set of elements is irrelevant: $ \forall x, y, z \in \set{G} : (x \operation y) \operation z = x \operation (y \operation z) $.
 			\item (Neutral Element) A neutral element in a set is an element that, when combined with any other element in the set using the group operation, results in the same element: $ \exists e  \in \set{G} \forall x \in \set{G} : x \operation e = x$ and $ e \operation x = x $.
 			\item (Inverse Element) The inverse of an element in a set is an element that when combined with the original element using the group operation, results in the neutral element. It allows for the reversal of the group operation: $ \forall x \in \set{G} \exists y \in \set{G} :  x \operation y = e$ and $ y \operation x = e $, where $ e $ is the neutral element. We can denote the inverse of an element $ x $ as $ x^{-1} $.
 		\end{enumerate}
@@ -62,7 +65,7 @@
 	Groups are very important in many areas of mathematics. Their rigorous and formal definition means that, if something is found to be a group, its properties can be better understood in the specific context in which it is relevant.
 	% example of group 
 	% ammend: general linear group being in italic / reference from the book / regular (invertible) not regular invertible
-	An example of a group is the general linear group. This is the set of regular invertible matrices $ \matrx{A} \in \real^{n \times n} $ with respect to matrix multiplication.
+	An example of a group is the general linear group. This is the set of regular invertible matrices $ \matrx{A} \in \real^{n \times n} $ where the group operation is matrix multiplication. The inverse elements would be the inverse of the matrix and the neutral element would be the identity matrix. However, the order in which the group operation is performed will affect the result i.e $ \matrx{AB} \ne \matrx{BA} $. 
 	% definition of an abelian group
 	Given a group $ G $, if the order in which the group operation is performed does not matter i.e. $ \forall x, y \in \set{G} : x \operation y = y \operation x $, then $ G = (\set{G}, \operation) $ is known as an \italic{Abelian group} (commutative). An example of this would be $ (\integers, +) $, the set of all integers under the addition operation.
 	
@@ -89,9 +92,10 @@
 		\end{enumerate}
 		\label{def:vector_space}
 	\end{definition}
+	It is also the case that non-real valued vector spaces are permitted. 
 	
 	% generalisation of a vector
-	We commonly think of vectors as being mathematical objects with both direction and magnitude. However, these are only geometric vectors. More generally, any set of objects which follows the definition of a vector space is known as a vector. For example, polynomials are also vectors. Two can be added together, resulting in another polynomial and they can be multiplied by a scalar $ \lambda \in \real $ which again results in another polynomial. 
+	We commonly think of vectors as being mathematical objects with both direction and magnitude. However, these are only geometric vectors. More generally, any set of objects which follows the definition of a vector space is known as a vector. For example, polynomials of the same degree are also vectors. Two can be added together, resulting in another polynomial of the same degree and they can be multiplied by a scalar $ \lambda \in \real $ which again results in another polynomial. 
 	
 	% ammend: add some more details here about how the specific examples fit into the axioms of a vector space. You should also include an example of a finite dimensional and infinite dimensional situation.
 	
@@ -109,22 +113,43 @@
 		\label{def:linear_combinations}
 	\end{definition}
 	% base vectors of R^2
-	Consider two vectors in $ \real^2 $, $\vectr{e}_1 = (1, 0)^{\top}$ and $\vectr{e}_2 = (0, 1)^{\top}$. It is common to see these written as $ \vectr{i} $ and $ \vectr{j} $ respectively. We can represent any vector in $ \real^2 $ as a linear combination of these two vectors. 
+	Consider two vectors in $ \real^2 $, $\vectr{e}_1 = (1, 0)^{\top}$ and $\vectr{e}_2 = (0, 1)^{\top}$. It is common to see these written as $ \vectr{i} $ and $ \vectr{j} $ respectively. We can represent any vector in $ \real^2 $ as a linear combination of these two vectors: \\
+	\italic{Proof}:
+	We can express any vector in $ \real^{2} $ as $ \vectr{v} = (\alpha, \beta)^{\top} $ where $ \alpha, \beta \in \real $. It is the case that $ \matrx{I}\vectr{v} $ = $ \vectr{v} $ for all $ \vectr{v} $. Therefore:
+	\begin{align}
+		\matrx{I}\vectr{v} = \vectr{v} = \begin{bmatrix}
+			1 & 0 \\
+			0 & 1 
+		\end{bmatrix} \begin{bmatrix}
+			\alpha \\
+			\beta 
+		\end{bmatrix} = \alpha \begin{bmatrix}
+			1 \\
+			0 
+		\end{bmatrix} + \beta \begin{bmatrix}
+			0 \\
+			1
+		\end{bmatrix} = \alpha \vectr{e}_1 + \beta \vectr{e}_2
+	\end{align}
 	% definition of linear independence
-	\begin{definition}[Linear (In)dependence] 
-		\normalfont Let us consider a vector space $\italic{V}$ with $k \in \real$ and  $\vectr{x}_1,\cdots,\vectr{x}_k \in \italic{V}$. If there is a non-trivial combination, such that $\vectr{0} = \sum_{i=1}^{k} \lambda_i\vectr{x}_i$ with at least one $\lambda_i \ne 0$, the vectors  $\vectr{x}_1,\cdots,\vectr{x}_k$ are \italic{linearly dependent}. If only the trivial solution exists, i.e., $ \lambda_1 = \cdots = \lambda_k = 0 $ the vectors $\vectr{x}_1,\cdots,\vectr{x}_k $ are \italic{linearly independent}.
+	\begin{definition}[Linear Dependence] 
+		\normalfont Consider a vector space $\italic{V}$ with $k \in \natral$ and  $\vectr{x}_1,\cdots,\vectr{x}_k \in \italic{V}$. If there is a non-trivial combination, such that $\vectr{0} = \sum_{i=1}^{k} \lambda_i\vectr{x}_i$ with at least one $\lambda_i \ne 0$, the vectors  $\vectr{x}_1,\cdots,\vectr{x}_k$ are \italic{linearly dependent}. \label{def:linear_independence}
+	\end{definition} 
+	% definition of linear dependence
+	\begin{definition}[Linear Independence]
+		\normalfont Consider a vector space $\italic{V}$ with $k \in \natral$ and  $\vectr{x}_1,\cdots,\vectr{x}_k \in \italic{V}$. If only the trivial solution exists, such that $\vectr{0} = \sum_{i=1}^{k} \lambda_i\vectr{x}_i$ with all $\lambda_i = 0$, the vectors $\vectr{x}_1,\cdots,\vectr{x}_k $ are \italic{linearly independent}.
 		\label{def:linear_independence}
 	\end{definition}
 		% example of linear independence through linear combinations
 	Lets consider the following set $\set{V}$ of vectors $\vectr{v}_1,\vectr{v}_2 $ and $ \vectr{v}_3$ where (respectively):
 	\begin{align}
-		\set{V} = \left\{\begin{pmatrix} 1 \\ 2 \end{pmatrix},\begin{pmatrix} -2 \\ -4 \end{pmatrix},\begin{pmatrix} -4 \\ -1 \end{pmatrix} \right\}
+		\set{V} = \left\{\begin{bmatrix} 1 \\ 2 \end{bmatrix},\begin{bmatrix} -2 \\ -4 \end{bmatrix},\begin{bmatrix} -4 \\ -1 \end{bmatrix} \right\}
 	\end{align}
 	And let $\vectr{y} \in \real^2$ be any linear combination that can be made from these vectors. Writing this out explicitly with $\alpha, \beta, \omega \in \real$:
 	\begin{align}
-		\vectr{y} &= \alpha \begin{pmatrix} 1 \\ 2 \end{pmatrix} + \beta \begin{pmatrix} -2 \\ -4 \end{pmatrix} + \omega \begin{pmatrix} -4 \\ -1 \end{pmatrix} \\
-		&= \alpha \begin{pmatrix} 1 \\ 2 \end{pmatrix} - 2\beta \begin{pmatrix} 1 \\ 2 \end{pmatrix} + \omega \begin{pmatrix} -4 \\ -1 \end{pmatrix} \\
-		&= (\alpha - 2\beta) \begin{pmatrix} 1 \\ 2 \end{pmatrix} + \omega \begin{pmatrix} -4 \\ -1 \end{pmatrix} \\
+		\vectr{y} &= \alpha \begin{bmatrix} 1 \\ 2 \end{bmatrix} + \beta \begin{bmatrix} -2 \\ -4 \end{bmatrix} + \omega \begin{bmatrix} -4 \\ -1 \end{bmatrix} \\
+		&= \alpha \begin{bmatrix} 1 \\ 2 \end{bmatrix} - 2\beta \begin{bmatrix} 1 \\ 2 \end{bmatrix} + \omega \begin{bmatrix} -4 \\ -1 \end{bmatrix} \\
+		&= (\alpha - 2\beta) \begin{bmatrix} 1 \\ 2 \end{bmatrix} + \omega \begin{bmatrix} -4 \\ -1 \end{bmatrix} \\
 	\end{align} 
 	% intuition behind linear independence 
 	What we have shown is that if a vector $ \vectr{y} $ can be represented as a linear combination of $ \vectr{v}_1,\vectr{v}_2 $ and $ \vectr{v}_3 $ then we can represent $ \vectr{y} $ as a linear combination of $ \vectr{v}_2 $ and $ \vectr{v}_3 $. This is because $ \vectr{v}_1 $ is a scaled version of $ \vectr{v}_2 $ and vice versa. 
@@ -132,7 +157,7 @@
 	More formally:
 	
 	\begin{align}
-		\begin{pmatrix} -2 \\ -4 \end{pmatrix} + 2 \begin{pmatrix} 1 \\ 2 \end{pmatrix} = \vectr{0}
+		\begin{bmatrix} -2 \\ -4 \end{bmatrix} + 2 \begin{bmatrix} 1 \\ 2 \end{bmatrix} = \vectr{0}
 	\end{align}
 	
 	which following from definition \ref{def:linear_independence} demonstrates that we have a linearly dependent set of vectors.
@@ -142,52 +167,72 @@
 	
 	% definition of a generating set and span
 	\begin{definition}[Generating Set and Span]
-		\normalfont Consider a vector space $\italic{V} = (\set{V}, +, \cdot)$ and set of vectors $\set{A} = \{\vectr{x}_1,\ldots,\vectr{x}_k\} \subseteq \italic{V}$. If every vector $\vectr{v} \in \italic{V}$ can be expressed as a linear combination of vectors of $\vectr{x}_1,\ldots,\vectr{x}_k$, $\set{A}$ is called the generating set of $\italic{V}$. The set of all linear combinations of vectors in $\set{A}$ is called the span of $\set{A}$. If $\set{A}$ spans the vector space $\italic{V}$, we write $\italic{V} = span[\set{A}]$. 
+		\normalfont Consider a vector space $\italic{V} = (\set{V}, +, \cdot)$ and set of vectors $\set{A} = \{\vectr{x}_1,\ldots,\vectr{x}_k\} \subseteq \italic{V}$. If every vector $\vectr{v} \in \italic{V}$ can be expressed as a linear combination of vectors of $\vectr{x}_1,\ldots,\vectr{x}_k$, $\set{A}$ is called a generating set of $\italic{V}$. The set of all linear combinations of vectors in $\set{A}$ is called the span of $\set{A}$. If $\set{A}$ spans the vector space $\italic{V}$, we write $\italic{V} = span[\set{A}]$. 
 		\label{def:generating_set_span}
 	\end{definition}
 	
 	% generating set of R^2
-	Consider the vector space $ V = (\real^{2}, +, \cdot) $ under matrix addition and scalar multiplication. Previously we have said that every vector $ v \in V $ can be represented as a linear combination of $\vectr{e}_1 = (1, 0)^{\top}$ and $\vectr{e}_2 = (0, 1)^{\top}$. By definition \ref{def:generating_set_span}, the set of vectors $ \set{B} = \{ \vectr{e}_1, \vectr{e}_2 \} $ is a generating set of $ \vectr{V} $. 
+	Consider the vector space $ V = (\real^{2}, +, \cdot) $ under vector addition and scalar multiplication. Previously we have said that every vector $ v \in V $ can be represented as a linear combination of $\vectr{e}_1 = (1, 0)^{\top}$ and $\vectr{e}_2 = (0, 1)^{\top}$. By definition \ref{def:generating_set_span}, the set of vectors $ \set{B} = \{ \vectr{e}_1, \vectr{e}_2 \} $ is a generating set of $ V $. 
 	% span of base vectors of R^2
-	On the other hand, the set of two-dimensional vectors $ \real^{2} $ contains all linear combinations of the set $ B $ meaning that the $ span[\set{B}] = \real^{2} $. In this sense, a generating set and the span of a set are two sides of the same coin.
+	On the other hand, the set of two-dimensional vectors $ \real^{2} $ contains all linear combinations of the set $ \set{B} $ meaning that the $ span[\set{B}] = \real^{2} $. In this sense, a generating set and the span of a set are two sides of the same coin.
 	\section{Basis}
 	
 	% reasoning behind a basis
 	A basis is concerned with the minimum number of vectors that would be needed to span a particular vector space. 
 	% basis definition
 	\begin{definition}[Basis]
-		\normalfont Consider a vector space $\italic{V} = (\set{V}, +, \cdot)$ and $\set{A} \subseteq \set{V}$. A generating set $\set{A}$ of $\italic{V}$ is called $\italic{minimal}$ if there exists no smaller set $\set{\tilde{A}} \subseteq \set{A} \subseteq \set{V}$ that spans $\italic{V}$. Every linearly independent generating set of $\italic{V}$  is minimal and is called a $\italic{basis}$ or $\italic{V}$.
+		\normalfont Consider a vector space $\italic{V} = (\set{V}, +, \cdot)$ and $\set{A} \subseteq \set{V}$. A generating set $\set{A}$ of $\italic{V}$ is called $\italic{minimal}$ if there exists no smaller set (with a lower cardinality) $\set{\tilde{A}} \subseteq \set{A} \subseteq \set{V}$ that spans $\italic{V}$. Every linearly independent generating set of $\italic{V}$  is minimal and is called a $\italic{basis}$ of $\italic{V}$.
 		\label{def:basis}
 	\end{definition}
 	% basis example
 	Consider the vector space $ \italic{V} = (\real^{3}, +, \cdot) $. A potential generating set for $ \italic{V} $ is the set $ \set{A} $ where:
 	% basis vectors for R^3
 	\begin{align}
-		\set{A} = \left\{\begin{pmatrix} 1 \\ 0 \\ 0  \end{pmatrix},\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix},\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} \right\}
+		\set{A} = \left\{\begin{bmatrix} 1 \\ 0 \\ 0  \end{bmatrix},\begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix},\begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} \right\}
 	\end{align}
 	% informal explanation for a basis
-	This is because every vector in $ \real^{3} $ can be represented as linear combinations of the vectors in $ \set{A} $. Since this set of vectors is linearly independent, it forms a \italic{minimal} generating set. We've described previously that the $ span $ of a set of vectors can be thought of as the collection of all potential linear combinations of the set. $ \set{A} $ forms a \italic{minimal} generating set because no vectors may be removed without eliminating some linear combinations / reducing the overall span of the set. This is what we mean by a basis for the vector space $ V $. 
+	This is because every vector in $ \real^{3} $ can be represented as linear combinations of the vectors in $ \set{A} $:
+	\italic{Proof}: Given a vector $ \vectr{v} \in \real^{3} $:
+	\begin{align}
+		\vectr{v} = \matrx{I}\vectr{v} = \begin{bmatrix}
+			1 & 0 & 0 \\
+			0 & 1 & 0 \\
+			0 & 0 & 1 
+		\end{bmatrix} \begin{bmatrix}
+			v_1 \\
+			v_2 \\
+			v_3
+		\end{bmatrix} = v_1 \begin{bmatrix}
+			1 \\ 0 \\ 0
+		\end{bmatrix} + v_2 \begin{bmatrix}
+			0 \\ 1 \\ 0 
+		\end{bmatrix} + v_3 \begin{bmatrix}
+			0 \\ 0 \\ 1
+		\end{bmatrix}
+	\end{align}
+	
+	Since this set of vectors is linearly independent, it forms a \italic{minimal} generating set. We've described previously that the $ span $ of a set of vectors can be thought of as the collection of all potential linear combinations of the set. $ \set{A} $ forms a \italic{minimal} generating set because no vectors may be removed without eliminating some linear combinations thus reducing the overall span of the set. This is what we mean by a basis for the vector space $ V $. 
 	% dimensionality = number of basis
-	As well as this, the number of dimensions of the vector space spanned by the basis is equal to the number of vectors in the basis for the vector space.
+	As well as this, the number of dimensions of the vector space spanned by the basis is defined as the number of vectors in the basis for the vector space.
 	\section{Row Rank and Column Rank}
 	
 	% proof that the column rank = dim(span(columns vectors of A))
-	Given a matrix $ \matrx{A} \in \real^{n \times m} $, the row rank (denoted as $ \rrank{A} $) and the column rank (denoted as $ \crank{A} $) describe the number of linearly independent row vectors and column vectors respectively.
+	Given a matrix $ \matrx{A} \in \real^{n \times m} $, the row rank (denoted as $ \rrank{A} $) and the column rank (denoted as $ \crank{A} $) describe the number of linearly independent row vectors and column vectors of the matrix $ \matrx{A} $ respectively.
 	% proposition for dim = rank
-	\begin{proposition}
-		\normalfont For a matrix $ \matrx{A} \in \real^{n \times m} $:
+	\begin{definition}
+		\normalfont For a matrix $ \matrx{A} \in \real^{n \times m} $ where $ \matrx{A}_{.i} $ denotes the $ i $th column vector:
 		\begin{align}
-			\crank{A} = dim(span[\matrx{A}_{.1}, \ldots, \matrx{A}_{.m}])
+			\crank{A} = dim(span[\{\matrx{A}_{.1}, \ldots, \matrx{A}_{.m}\}])
 		\end{align}
 		\label{prop:c_rank_dim}
-	\end{proposition}
+	\end{definition}
 	% example for 2x2 case
 	\noindent\italic{Example:}
-	Consider a matrix $A = [\matrx{A}_{.1} | \matrx{A}_{.2}]$ where $ \matrx{A}_{.1} $ and $ \matrx{A}_{.2} $ are linearly dependent. The $ span $ of $\set{B} = \{\matrx{A}_{.1}, \matrx{A}_{.2}\} $ is all the linear combinations that can be created from the two vectors. Let $ s \in span[B] $:  
+	Consider a matrix $\matrx{A} = [\matrx{A}_{.1} | \matrx{A}_{.2}]$ where $ \matrx{A}_{.1} $ and $ \matrx{A}_{.2} $ are linearly dependent. The $ span $ of $\set{B} = \{\matrx{A}_{.1}, \matrx{A}_{.2}\} $ is all the linear combinations that can be created from the two vectors. Let $ s \in span[B] $:  
 	\begin{align}
 		s = \lambda_1 \matrx{A}_{.1} + \lambda_2 \matrx{A}_{.2}, \hspace{10pt}\forall \lambda_1, \lambda_2 \in \real
 	\end{align}
-	Because the column vectors are linearly dependent, by definition \ref{def:linear_independence}, 	$ \exists \lambda_3, \lambda_4$ such that: 
+	Because the column vectors are linearly dependent, by definition \ref{def:linear_independence}, $ \exists \lambda_3, \lambda_4$ where $ \lambda_3,\lambda_4 \ne 0 $ such that: 
 	\begin{align}
 		\lambda_3 \matrx{A}_{.1} + \lambda_4 \matrx{A}_{.2} &= \vectr{0} \\
 		\matrx{A}_{.1} &= \frac{\lambda_4}{\lambda_3} \matrx{A}_{.2}
@@ -197,7 +242,7 @@
 		s &= \lambda_1 \matrx{A}_{.1} + \lambda_2 \matrx{A}_{.2} \\
 		&= (-\lambda_1 \frac{\lambda_4}{\lambda_3} + \lambda_4) \matrx{A}_{.2}
 	\end{align}
-	This means that $ \set{C} = \{\matrx{A}_{.2}\} $ forms a basis. Because the number of elements in this set is 1, the dimension of $ span[C] $ is 1. Because both column vectors of $ \matrx{A} $ are linearly independent, the $ \crank{A} = 1$ and so proposition \ref{prop:c_rank_dim} is shown to be true for the case of a matrix with two column vectors. Similar methods can show that this is true for larger matrices. Furthermore, the same reasoning can be used to conclude that $ \rrank{\matrx{A}} = dim(span[\matrx{A}_{1.}, \ldots, \matrx{A}_{n.}]) $.
+	This means that $ \set{C} = \{\matrx{A}_{.2}\} $ forms a basis for the set of column vectors of $ \matrx{A} $. Because the number of elements in this set is 1, the dimension of $ span[C] $ is 1. Because both column vectors of $ \matrx{A} $ are linearly independent, the $ \crank{A} = 1$.
 	% row rank = column rank proposition
 	\begin{proposition}
 		\normalfont Given a matrix $ \matrx{A} \in \real^{n \times m}$, the following statement is always true:
@@ -293,31 +338,30 @@
 	\italic{Proof}: Let $ \matrx{A} $ be a matrix defined as follows with the set of all row vectors being $ \set{R} $ and the set of all column vectors being $ \set{C} $:
 	
 	\begin{align}
-		\matrx{A} = \begin{pmatrix}
+		\matrx{A} = \begin{bmatrix}
 			1 & 3 \\
 			2 & 2 \\
 			3 & 1 
-		\end{pmatrix}
+		\end{bmatrix}
 	\end{align} 
 
 	The column space contains a vector $ \vectr{v}_1 $ such that:
 	
 	\begin{align}
-		\vectr{v}_1 = \begin{pmatrix}
+		\vectr{v}_1 = \begin{bmatrix}
 			1 \\
 			2 \\
 			3 
-		\end{pmatrix} + \begin{pmatrix}
+		\end{bmatrix} + \begin{bmatrix}
 		3 \\
 		2 \\
 		1 
-	\end{pmatrix} = \begin{pmatrix}
+	\end{bmatrix} = \begin{bmatrix}
 		4 \\
 		4 \\
 		4 
-	\end{pmatrix}
+	\end{bmatrix}
  	\end{align}
-	
 	It is clear that there exists no linear combination of the row vectors that could result in the vector $ \vectr{v}_1 $. Therefore, the $ span[\set{R}] $ does not contain a vector in $ span[\set{C}] $ and they cannot be equal. More generally, the row space and column space may not always be the same since they do not contain the same set of vectors. 
 	% brief intro to eignevectors and eigenvalues
 	\section{Eigenvalues and Eigenvectors} \label{sec:eigen}
@@ -333,19 +377,15 @@
 		\label{def:eigenvalue_eigenvector} 
 	\end{definition} 
 	Before we can delve into a method for calculating the eigenvalues and eigenvectors, we need to explore another property of a matrix known as the ``determinant".
-	
 	% section on determinant
 	\section{Determinant}
 	The determinant is a property of a matrix that describes whether it is a non-singular (invertible) matrix. Consider the following set of simultaneous equations: 
-	
 	\begin{align}
 		2x - 3y &= 4 \\
 		5x + 7y &= 9
-	\end{align}
-	
+	\end{align}	
 	% solving simultaneous equations using school method
-	A standard way to solve this is by rearranging one of the equations, substituting this into the other equation and putting the derived value back into the original:
-	
+	A standard way to solve this is by rearranging one of the equations, substituting this into the other equation and putting the derived value back into the original:	
 	\begin{align*}
 		x = \frac{1}{2} (4 + 3y) \\
 		5\frac{1}{2}(4 + 3y) + 7y = 9 \\
@@ -356,7 +396,6 @@
 		x = \frac{1}{2}(4 + 3(- \frac{29}{2})) \\
 		x = \frac{55}{29} \tag{\nexteq}
 	\end{align*}
-
 	This method is sufficient when we are solving two equations with two unknowns but it becomes more tedious when we are working with larger systems of equations. An alternative method is to setup a matrix equation and use methods from linear algebra to determine the unknowns. We first setup our system by collecting together the coefficients rewriting the system: 
 	% matrix representation of the set of equations
 	\begin{equation}
@@ -463,7 +502,7 @@
 		y
 	\end{bmatrix}
 	\end{align}
-	This method could be considered a better choice because it generalises for much larger matrices. A part of the solution involved calculating the inverse of a matrix. In certain cases, the inverse of a matrix may not exist. This brings us to the determinant. The determinant is a scalar value derived as a function of all the elements of a matrix. It is only defined on squares matrices and if it is non-zero, the matrix is invertible. For a matrix $ \matrx{A} \in \real^{2 \times 2} $, the determinant of $ \matrx{A} $, denoted by $ \dett{A} $, is given by:
+	This method could be considered a better choice because it generalises for much larger systems of linear equations. A part of the solution involved calculating the inverse of a matrix. In certain cases, the inverse of a matrix may not exist. This brings us to the determinant. The determinant is a scalar value derived as a function of all the elements of a matrix. It is only defined on squares matrices and if it is non-zero, the matrix is invertible. For a matrix $ \matrx{A} \in \real^{2 \times 2} $, the determinant of $ \matrx{A} $, denoted by $ \dett{A} $, is given by:
 	% determinant of a 2x2 matrix
 	\begin{align}
 		\matrx{A} = \begin{bmatrix}
@@ -474,13 +513,11 @@
 		\dett{A} = ad - bc
 	\end{align}
 	This makes sense for in the case of our system of linear equations. You can see in equation \ref{eq:2_2_inv} where the determinant features in the equation for the inverse of the matrix. If $ \dett{A} = 0$ then the inverse cannot be calculated. This same condition applies to equations for the inverse of larger matrices that don't explicitly involve $ \dett{A} $. For square matrices $ \matrx{A} \in \real^{n \times n}, \matrx{B} \in \real^{m \times m} $, the following properties hold:
-	
 	\begin{enumerate}
 		\item $ \dett{AB} = \dett{A}\dett{B} $
 		\item $ \dett{A}^{-1} = \frac{1}{\dett{A}} $
 		\item $ \dett{A} = \dett{A^{\top}}$
 	\end{enumerate}
-
 	We can now revisit our discussion from section \ref{sec:eigen} on eigenvalues and eigenvectors. We can use the determinant to calculate these values. We can take the definition \ref{def:eigenvalue_eigenvector} and rewrite it into a form that we can solve:
 	\begin{align}
 		\matrx{A} \vectr{u} &= \lambda \vectr{u} \\
@@ -488,7 +525,6 @@
 		(\matrx{A} - \lambda \matrx{I}) \vectr{u} &= \vectr{0} 
 		\label{eq:proof_eigen_det}
 	\end{align}
-	
 	\begin{proposition}
 		\normalfont For a matrix $ \matrx{A} \in \real^{n \times n} $ and an eigenvalue $ \lambda \in \real $ with corresponding eigenvector $ \vectr{u} \in \real^{n} $: 
 		\begin{align}
@@ -563,7 +599,6 @@
 			-2
 		\end{bmatrix}
 	\end{align}
-	
 	\begin{proposition}
 		\normalfont Given a matrix $ \matrx{A} $ with distinct eigenvalues $ \{\lambda_1,\lambda_2,\ldots \\,\lambda_{k - 1},\lambda_k\} $ and corresponding eigenvectors $ \{\vectr{v}_1,\vectr{v}_2,\ldots,\vectr{v}_{k - 1},\vectr{v}_k\} $, the set of eigenvectors are linearly independent.
 		\label{prop:eigenvectors_linearly_independent}
@@ -640,6 +675,93 @@
 		Where $ \matrx{A}_{k,j} \in \real^{(n - 1) \times (n - 1)} $ is the submatrix of $ \matrx{A} $ that we obtain when deleting row $ k $ and column $ j $. 
 		\end{theorem}
 	\end{enumerate}
-
-	\printbibliography
+	
+	\section{Linear Transformations}
+	Linear transformations are concerned with going from one vector space to another. During the transformation, the properties of a vector space (defined in \ref{def:vector_space}) are maintained. 
+	
+	\begin{definition}
+		\normalfont A linear transformation between two vector spaces $ \vecspace{V} $ and $ \vecspace{W} $ is a map $ \Psi: \vecspace{V} \rightarrow \vecspace{W} $ such that the following hold:
+		\begin{enumerate}
+			\item $ \Psi(\vectr{v}_1 + \vectr{v}_2) = \Psi(\vectr{v}_1) + \Psi(a\vectr{v}_2)$ for any vectors $ \vectr{v}_1 $ and $ \vectr{v}_2 $ in $ \vecspace{V} $.
+			\item $ \Psi(\alpha \vectr{v}) = \alpha \Psi(\vectr{v})$ for any scalar $ \alpha \in \real $.  
+		\end{enumerate}
+		After transformation is applied, straight lines in the first vector space will remain as straight lines in the final vector space. It is also the case that $ \Psi(0) = 0 $. There are several different types of linear transformations (or linear mappings) but we will restrict our focus to a small few. Given two vector spaces $ \vecspace{V} $ and $ \vecspace{W} $ and a linear transformation $ \Phi: \vecspace{V} \rightarrow \vecspace{W} $:
+		\begin{enumerate}
+			\item (Injective) If $ \forall \vectr{x}, \vectr{y} \in \vecspace{V}: \Phi(\vectr{x}) = \Phi(\vectr{y}) \Longrightarrow \vectr{x} = \vectr{y}$. What this means is that distinct elements in $ \vecspace{V} $ are mapped onto distinct elements in $ \vecspace{W} $. It is not necessarily the case that every element in $ \vecspace{W} $ can be reached from $ \vecspace{V} $. 
+			\item (Surjective) If $ \Phi(\vecspace{V}) = \vecspace{W}$. What this means is that every element in $ \vecspace{W} $ can be reached from $ \vecspace{V} $. This doesn't need to be a unique relationship. 
+			\item (Bijective) If $ \Phi $ is bijective, then it is injective and surjective. ``Bi" represents that elements come in pairs; one from $ \vecspace{V} $ and one from $ \vecspace{W} $ such that there is a unique relationship between elements from one vector space to the other. It is also the case that every element in $ \vecspace{W} $ can be reached from $ \vecspace{V} $.
+		\end{enumerate}
+	\end{definition}
+	Given these definitions, we can describe the type of transformation that we are going to focus on: isomorphic transformations. This means that the transformation is linear (i.e. straight lines are maintained and zero is unchanged) and bijective. 
+	A transformation allows us to go from one coordinate system to another. It is important to clarify what a coordinate actually is. 
+	\begin{definition}[Coordinate]
+		\normalfont Consider a vector space $ V $ and an ordered basis $ B = (\vectr{b}_1, \ldots, \vectr{b}_n) $ of $ V $. For any $ \vectr{x} \in V $ we obtain a unique representation (linear combination):
+		\begin{align}
+			\vectr{x} = \alpha \vectr{b}_1 + \ldots + \alpha_n \vectr{b}_n 
+		\end{align}
+		of $ \vectr{x} $ with respect to $ B $. Then $ \alpha_1, \ldots, \alpha_n $ are the coordinates of $ \vectr{x} $ with respect to $ B $, and the vector
+		\begin{align}
+			\boldsymbol{\alpha} = \begin{bmatrix}
+				\alpha_1 \\
+				\vdots \\
+				\alpha_n
+			\end{bmatrix} \in \real^{n} 
+		\end{align}
+	is the coordinate vector / coordinate representation of $ \vectr{x} $ with respect to the ordered basis $ B $.
+	\label{def:coordinate}
+	\end{definition}
+	In the case of $ \real^{2} $, we have discussed previously how every vector $ \vectr{v} $ can be represented as linear combinations of $ \vectr{e}_1 = (1, 0)^{\top} $ and $ \vectr{e}_2 = (0, 1)^{\top} $ such that $ \forall \vectr{v} \in \real^{2} $, there exists $ \alpha_1, \alpha_2 \in \real $ such that $ \vectr{v} = \alpha_1 \vectr{e}_1 + \alpha_2 \vectr{e}_2 $. In this case (and in the case of all ordered sets of basis vectors) the coordinate would be $ (\alpha_1, \alpha_2) $. This is why you often see coordinates in applied mathematics represented as $ \alpha_1 \vectr{i} + \alpha_2 \vectr{j} $. Lets suppose we had a vector space $ V $ and two sets of vectors $ \set{A} = \{\vectr{a}_1,\ldots,\vectr{a}_n\} $ and $ \set{B} = \{\vectr{b}_1,\ldots,\vectr{b}_n\} $.  By definition \ref{def:basis}, we can write each vector in $ \set{A} $ as a unique linear combination of the vectors in $ \set{B} $. Given scalars $ c_{ij} $ where $ 1 \leq i,j \leq n $:
+	\begin{align*}
+		\vectr{a}_1 =& c_{1,1}\vectr{b}_1 + c_{1,2}\vectr{b}_{1,2} + \ldots + c_{1,n}\vectr{u}_n \\
+		  &\vdots \hspace{50pt} \vdots \hspace{50pt} \vdots \\ 
+		 \vectr{a}_n =& c_{n,1}\vectr{b}_1 + c_{n,2}\vectr{b}_{1,2} + \ldots + c_{n,n}\vectr{u}_n 
+	\end{align*}
+	Lets introduce a matrix $ \matrx{G} = (c_{ij})_{ij}$ which we will call the \textbf{change-of-basis matrix}. Any vector $ \vectr{v} $ can now be represented in the following way:
+	\begin{align}
+		\vectr{a} &= (\vectr{a}_1 \hspace{3mm} \vectr{a}_2 \hspace{3mm} \ldots \hspace{3mm} \vectr{a}_n) \begin{bmatrix}
+			c_1 \\ c_2 \\ \vdots \\ c_n
+		\end{bmatrix} \\
+		&= (\vectr{b}_1 \hspace{3mm} \vectr{b}_2 \hspace{3mm} \ldots \hspace{3mm} \vectr{b}_n) \hspace{1mm} \matrx{G} \hspace{1mm} \begin{bmatrix}
+			c_1 \\ c_2 \\ \vdots \\ c_n
+		\end{bmatrix}
+	\end{align} 
+	In other words, to construct a matrix which allows us to transform any coordinate constructed from the basis vectors in $ \set{B} $ to those in $ \set{A} $, we can use the coordinates of the basis vectors themselves to define the transformation. Furthermore, This transformation is injective.
+	\\\\
+	\italic{Example}: Consider a vector space $ V $ and a vector $ \vectr{v} = 15\vectr{e}_1 - 5\vectr{e}_2 $ where $ \vectr{e}_1 = (1, 0)^{\top} $ and $ \vectr{e}_2 = (0, 1)^{\top} $ form a basis for $ V $. We want to take the coordinate $(15, -5)$ and represent it using two new basis vectors of $ V $, $ \vectr{d}_1 = (1, 1)^{\top} $ and $ \vectr{d}_2 = (3, -2)^{\top} $. From definition \ref{def:basis} and definition \ref{def:coordinate}, we want to find $ \alpha, \beta \in \real $ such that: 
+	\begin{align}
+		\begin{bmatrix}
+			15 \\ 2
+		\end{bmatrix} = \alpha \begin{bmatrix}
+			1 \\ 1 
+		\end{bmatrix} + \beta \begin{bmatrix}
+		    3 \\ -2
+		\end{bmatrix} &= \begin{bmatrix}
+			1 & 3 \\ 
+			1 & -2 
+		\end{bmatrix} \begin{bmatrix}
+			\alpha \\ \beta
+		\end{bmatrix} \\
+		\begin{bmatrix}
+			1 & 3 \\
+			1 & -2 
+		\end{bmatrix}^{-1} 
+		\begin{bmatrix}
+			15 \\ -5
+		\end{bmatrix}
+		&= \begin{bmatrix}
+			3 \\ 4
+		\end{bmatrix}
+	\end{align}
+	Therefore, the coordinate $ (15, -5) $ with respect to the basis vectors $ \vectr{e}_1 $ and $ \vectr{e}_2 $ is equivalent to $ (3, 4) $ with respect to the basis vectors $ \vectr{d}_1 $ and $ \vectr{d}_2 $. \\	
+	In this example, an important concept appears. Linear transformations can be represented as a matrix. More precisely, this is how they're defined. Suppose we wanted to define a linear transformation as a matrix that represented a reflection in the line $ y = x $. Let $ V $ be a vector space and $ \vectr{v} = (\alpha, \beta) $ be a vector in that vector space. $ V $ has basis vectors $ \vectr{d}_1 $ and $ \vectr{d}_2 $ meaning that $ \vectr{v} = \alpha \vectr{d}_1 + \beta \vectr{d}_2 $. Let $ W $ be a vector space and $ \vectr{w} = (\delta, \epsilon`) $ be a vector in that vector space. $ W $ has basis vectors $ \vectr{f}_1 $ and $ \vectr{f}_2 $ meaning that $ \vectr{v} = \delta \vectr{f}_1 + \epsilon \vectr{f}_2 $. Let $ \matrx{A} $ be the matrix that defines the reflection in the line $ y = x $:
+	\begin{align}
+		\vectr{v} &= \alpha \vectr{d}_1 + \beta \vectr{d}_2 \\
+		\matrx{M} \vectr{v} &= \matrx{M} [ \alpha \vectr{d}_1 + \beta \vectr{d}_2] \\
+		 &= \alpha \matrx{M} \vectr{d}_1 + \beta \matrx{M} \vectr{d}_2 \\
+		 &= \alpha \vectr{f}_1 + \beta \vectr{f}_2
+	\end{align}
+	What this demonstrates is that if we consider how the basis vectors $ \vectr{d}_1 $ and $ \vectr{d}_2 $ for $ V $ are changed after the described transformation, we can construct the matrix $ \matrx{M} $ with each column vector being the ordered basis vectors $ \vectr{f}_1 $ and $ \vectr{f}_2 $. This then allows us to perform the reflection on any coordinate in $ V $. 
+	\section{Matrix Decompositions}
+	
+  	\printbibliography
 \end{document}
