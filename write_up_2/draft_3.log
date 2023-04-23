@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.11.9)  21 APR 2023 13:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.11.9)  20 APR 2023 16:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./draft_2_debug.tex
-(draft_2_debug.tex
+**./draft_3.tex
+(draft_3.tex
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-09-28>
 (C:\Users\David.Blair\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -495,8 +495,8 @@ Package: blx-case-expl3 2022/07/12 v3.18b expl3 case changing code for biblatex
 \c@theorem=\count409
 \@quotelevel=\count410
 \@quotereset=\count411
- (draft_2_debug.aux)
-\openout1 = `draft_2_debug.aux'.
+ (draft_3.aux)
+\openout1 = `draft_3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
 LaTeX Font Info:    ... okay on input line 48.
@@ -552,11 +552,11 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Data encoding 'utf8' specified.
 (biblatex)             No need to reencode data.
-\openout3 = `draft_2_debug-blx.bib'.
+\openout3 = `draft_3-blx.bib'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'draft_2_debug.bbl' found.
- (draft_2_debug.bbl)
+Package biblatex Info: ... file 'draft_3.bbl' found.
+ (draft_3.bbl)
 Runaway argument?
 {\url {https://homepages.rpi.edu/~mitchj/handouts/linalg/##:~:text=Th\ETC.
 ! File ended while scanning use of \field.
@@ -579,9 +579,9 @@ Package pdftex.def Info: brunel logo.png  used on input line 51.
 [1
 
 {C:/Users/David.Blair/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./brun
-el logo.png>] (draft_2_debug.toc)
+el logo.png>] (draft_3.toc)
 \tf@toc=\write4
-\openout4 = `draft_2_debug.toc'.
+\openout4 = `draft_3.toc'.
 
 LaTeX Font Info:    Trying to load font information for U+msa on input line 85.
 
@@ -803,24 +803,24 @@ and I'll forget about whatever was undefined.
 ! Incomplete \iffalse; all text was ignored after line 86.
 <inserted text> 
                 \fi 
-<*> ./draft_2_debug.tex
-                       
+<*> ./draft_3.tex
+                 
 The file ended while I was skipping conditional text.
 This kind of error happens when you say `\if...' and forget
 the matching `\fi'. I've inserted a `\fi'; this might work.
 
 ! Emergency stop.
-<*> ./draft_2_debug.tex
-                       
+<*> ./draft_3.tex
+                 
 *** (job aborted, no legal \end found)
 
  
 Here is how much of TeX's memory you used:
- 12314 strings out of 475385
- 225656 string characters out of 2774075
- 761955 words of memory out of 3000000
- 33570 multiletter control sequences out of 15000+600000
+ 12308 strings out of 475385
+ 225202 string characters out of 2774075
+ 761925 words of memory out of 3000000
+ 33564 multiletter control sequences out of 15000+600000
  478530 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,5n,68p,2267b,1296s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 60i,5n,68p,2261b,1296s stack positions out of 10000i,1000n,20000p,200000b,80000s
 !  ==> Fatal error occurred, no output PDF file produced!

@@ -1,0 +1,32 @@
+Vector space definition X def_vector_space
+group definition X def_group
+set definition X def_set_cantor
+linear independence definition X mml_book 40
+linear combinations definition X mml_book 40
+generating set and span definition X def_generating_set_span
+basis definition X def_basis
+link between the rank and dim of span X rank_dim_span
+proof of row rank = column rank X row_rank_eq_col_rank
+definition of column rank, row rank and rank X def_row_rank_col_rank
+definition of row space and column space X def_row_space_col_space
+definition of an eigenvalue eigenvector pair X def_eigen_vec_val
+inverse of a 2x2 matrix (inverse matrix formula) X def_inv_2x2_det
+definition of determinant of 2x2 matrix X def_inv_2x2_det
+properties of det eg det(AB) = det(A)det(B) X mml_book 103
+proof that eigenvectors are linearly independent X proof_eigen_vec_lid
+Proof that product of eigenvalues is the determinant X proof_det_prod_eigen
+Ways to calculate the determinant of all matrices X mml_book 100
+Definition of a linear transformation X def_lin_trans
+definition of injective, surjective and bijective X mml_book 48
+definition of a coordinate X mml_book 50 
+Using basis vectors to go from one vector space to another X change_basis
+eigenvalue decomposition X mml_book 116
+singular value decompisition mml_book 119
+proof from eigendecomposition to the singular value decomposition X proof_ed_to_svd
+decomposition as the sum of low ranks X def_sum_low_rank
+python imaging library X python_pil
+matplotlib x python_matplotlib
+numpy 
+link to my own code
+equation for the variance explained
+r/place image
