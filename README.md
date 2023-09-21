@@ -1,5 +1,5 @@
 # Advanced_Project
-This was my advanced project submitted as part of an integrated masters course in mathematics at Brunel University London. You can find  the full text in `Advanced_Project (8).pdf`. The abstract:
+This was my advanced project submitted as part of an integrated masters course in mathematics at Brunel University London. All code was written in python and the write up was written in $LaTeX$. You can find  the full text in `Advanced_Project (8).pdf`. The abstract:
 
 ><em>In this paper, we explore some of the foundational concepts in linear algebra. We aim to provide intuition behind commonly used propositions and a number of proofs are given for some non-trivial results. After the fundamental concepts are covered, we delve into two types of matrix decomposition leading ultimately to an exploration of the singular value decomposition. This is followed by a practical investigation where some python code has been written to allow the reader to easily apply this decomposition to both grey scale and coloured images. We finish with some recommendations as to further practical work that could be undertaken.</em>
 
