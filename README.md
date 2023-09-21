@@ -1,27 +1,27 @@
 # Advanced_Project
 This was my advanced project submitted as part of an integrated masters course in mathematics at Brunel University London. You can find  the full text in `Advanced_Project (8).pdf`. The abstract:
 
-><em>In this paper, we explore some of the foundational concepts in linear algebra. We aim to provide intuition behind commonly used propositions and a number of proofs are given for some non-trivial results. After the fundamental concepts are covered, we delve into two types of matrix decomposition leading ultimately to an explorations of the singular value decomposition. This is followed by a practical investigation where some python code has been written to allow the reader to easily apply this decomposition to both grey scale and coloured images. We finish with some recommendations as to further practical work that could be undertaken.<em>
+><em>In this paper, we explore some of the foundational concepts in linear algebra. We aim to provide intuition behind commonly used propositions and a number of proofs are given for some non-trivial results. After the fundamental concepts are covered, we delve into two types of matrix decomposition leading ultimately to an exploration of the singular value decomposition. This is followed by a practical investigation where some python code has been written to allow the reader to easily apply this decomposition to both grey scale and coloured images. We finish with some recommendations as to further practical work that could be undertaken.</em>
 
 I implemented a python object which can be used by Data Scientists. This can be found in `Practical/main.py`.
 
 This code primarily focuses on the implementation and usage of Singular Value Decomposition (SVD) for images. It aims to demonstrate various ways of decomposing an image into its red, green, and blue (RGB) components and reconstructing it using reduced numbers of singular values.
 
-## Libraries & Modules
+### Libraries & Modules
 
 1. **matplotlib.pyplot**: Used for plotting images and charts.
 2. **numpy**: Used for matrix operations and calculations.
 3. **PIL.Image**: Utilized for loading and manipulating images.
 4. **os**: Used for retrieving the base name of a file path.
 
-## Class: `image_svd`
+### Class: `image_svd`
 
-### Attributes:
+#### Attributes:
 - `path`: The path to the image file.
 - `image`: A PIL Image object loaded from the provided path.
 - `color_map`: A list denoting the names of RGB colors.
 
-### Methods:
+#### Methods:
 
 1. **get_component(index: int)**: Retrieves a 2D matrix of color intensities. The provided index determines the color (0 for red, 1 for green, and 2 for blue).
 
@@ -59,7 +59,7 @@ This code primarily focuses on the implementation and usage of Singular Value De
 
 5. **__rank_k_approximation(matrix_U: np.matrix, matrix_s: np.ndarray, matrix_V: np.matrix, num_components: int)**: Returns a rank-k approximation using provided U, singular values, and V matrices.
 
-## Example Usage:
+### Example Usage:
 
 The given code concludes by loading an image named "colourful_image.jpg", decomposing it, and plotting approximations using RGB components.
 
@@ -71,7 +71,7 @@ plt.show()
 
 This example will plot five approximations of the image using varying numbers of singular values for each RGB component and display the result.
 
-## Note:
+### Note:
 
 While the code structure provides a comprehensive exploration of image decompositions using SVD, optimizations, and enhancements can be made to improve efficiency and expand functionalities.
 
